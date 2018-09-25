@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="4532.4615"
-     inkscape:cy="318.97386"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="528.32947"
+     inkscape:cy="994.7363"
      inkscape:document-units="in"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -34,11 +34,11 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="1609"
-     inkscape:window-maximized="1"
+     inkscape:window-width="1440"
+     inkscape:window-height="1515"
+     inkscape:window-x="1432"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
      inkscape:snap-text-baseline="false"
      inkscape:object-paths="true" />
   <defs
@@ -1346,25 +1346,25 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.69999981px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-1620.2755"
-       y="-163.88969"
+       x="-1631.5009"
+       y="-162.39299"
        id="text5573"><tspan
          sodipodi:role="line"
          id="tspan5571"
-         x="-1620.2755"
-         y="-163.88969"
+         x="-1631.5009"
+         y="-162.39299"
          style="stroke-width:0.26458332">Graph 1&amp;2</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.69999981px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-1657.6932"
-       y="-289.61322"
+       x="-1667.4219"
+       y="-290.36157"
        id="text5577"><tspan
          sodipodi:role="line"
          id="tspan5575"
-         x="-1657.6932"
-         y="-289.61322"
-         style="stroke-width:0.26458332">Graph3&amp;4</tspan></text>
+         x="-1667.4219"
+         y="-290.36157"
+         style="stroke-width:0.26458332">Graph 3&amp;4</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.69999981px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -1376,5 +1376,80 @@
          x="-1567.1423"
          y="-354.34595"
          style="stroke-width:0.26458332">Finalize graphs</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.98974228px;line-height:1;font-family:'Ink Free';-inkscape-font-specification:'Ink Free, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#aa0000;fill-opacity:1;stroke:none;stroke-width:37.49160385"
+       x="-1395.4094"
+       y="45.139065"
+       id="text4705-9"
+       transform="scale(1.1140537,0.89762281)"><tspan
+         sodipodi:role="line"
+         x="-1395.4094"
+         y="45.139065"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.98974228px;line-height:1;font-family:'Ink Free';-inkscape-font-specification:'Ink Free, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#aa0000;fill-opacity:1;stroke-width:37.49160385"
+         id="tspan4717-8">Thank</tspan><tspan
+         sodipodi:role="line"
+         x="-1395.4094"
+         y="95.128807"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.98974228px;line-height:1;font-family:'Ink Free';-inkscape-font-specification:'Ink Free, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#aa0000;fill-opacity:1;stroke-width:37.49160385"
+         id="tspan1260" /><tspan
+         sodipodi:role="line"
+         x="-1395.4094"
+         y="145.11855"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.98974228px;line-height:1;font-family:'Ink Free';-inkscape-font-specification:'Ink Free, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#aa0000;fill-opacity:1;stroke-width:37.49160385"
+         id="tspan1262">   You</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.69999981px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-1606.8052"
+       y="164.63792"
+       id="text1266"><tspan
+         sodipodi:role="line"
+         id="tspan1264"
+         x="-1606.8052"
+         y="176.22452"
+         style="stroke-width:0.26458332"></tspan></text>
+    <image
+       sodipodi:absref="C:\Users\tanay\Pictures\what-do-7-billion-people-do-infographic.png"
+       y="172.0461"
+       x="-189.70401"
+       id="image1276"
+       xlink:href="file:///C:/Users/tanay/Pictures/what-do-7-billion-people-do-infographic.png"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="90.752304"
+       width="114.42995"
+       inkscape:transform-center-x="-247.15611"
+       inkscape:transform-center-y="95.978356" />
+    <image
+       sodipodi:absref="C:\Users\tanay\Pictures\country_comparison_infographic__population_by_thesharonyu-d6ketew.png"
+       y="155.05579"
+       x="-28.904999"
+       id="image1287"
+       xlink:href="file:///C:/Users/tanay/Pictures/country_comparison_infographic__population_by_thesharonyu-d6ketew.png"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="107.74261"
+       width="130.24265" />
+    <image
+       sodipodi:absref="C:\Users\tanay\Pictures\500-million-wealth.png"
+       y="63.448463"
+       x="-166.8792"
+       id="image1298"
+       xlink:href="file:///C:/Users/tanay/Pictures/500-million-wealth.png"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="99.804466"
+       width="96.317078" />
+    <image
+       sodipodi:absref="C:\Users\tanay\Pictures\tku.jpg"
+       y="145.88008"
+       x="-1512.8333"
+       id="image1309"
+       xlink:href="file:///C:/Users/tanay/Pictures/tku.jpg"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="54.727875"
+       width="79.966927" />
   </g>
 </svg>
