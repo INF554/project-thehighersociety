@@ -12,8 +12,8 @@
     {
       "frameId": "frame6406",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 0,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -39,10 +39,10 @@
       },
       "cameraStates": {
         "layer1": {
-          "cx": 1385.8002375634396,
-          "cy": 1237.3271639551544,
-          "width": 11.699122598658988,
-          "height": 8.774341948994241,
+          "cx": 1385.6879328759396,
+          "cy": 1237.563125869217,
+          "width": 11.981596383737275,
+          "height": 8.670626323119604,
           "opacity": 1,
           "angle": 0,
           "clipped": false,
@@ -67,10 +67,10 @@
       },
       "cameraOffsets": {
         "layer1": {
-          "deltaX": -0.30278978031037695,
-          "deltaY": -0.9022061620330533,
-          "widthFactor": 1.6173942968120762,
-          "heightFactor": 1.3642983064755232,
+          "deltaX": -0.35088548343537695,
+          "deltaY": -0.6509854589080533,
+          "widthFactor": 1.4676958307087453,
+          "heightFactor": 1.2427974975398182,
           "deltaAngle": 0
         }
       }
@@ -78,8 +78,8 @@
     {
       "frameId": "frame9463",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 1400,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -144,8 +144,8 @@
     {
       "frameId": "frame2240",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 1000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -210,8 +210,8 @@
     {
       "frameId": "frame9591",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 1000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -276,8 +276,8 @@
     {
       "frameId": "frame9683",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 1000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -333,8 +333,8 @@
         "layer1": {
           "deltaX": 0.03477745149598377,
           "deltaY": 0.3856249764628501,
-          "widthFactor": 1.064284513366029,
-          "heightFactor": 1.4637731503036657,
+          "widthFactor": 1.0642845133660293,
+          "heightFactor": 1.463773150303666,
           "deltaAngle": -0.2008196645791429
         }
       }
@@ -342,8 +342,8 @@
     {
       "frameId": "frame4952",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 1000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -408,8 +408,8 @@
     {
       "frameId": "frame5401",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -418,7 +418,7 @@
           "link": false,
           "referenceElementId": "path3715-6-6",
           "outlineElementId": "path3715-6-6",
-          "outlineElementAuto": true,
+          "outlineElementAuto": false,
           "transitionTimingFunction": "linear",
           "transitionRelativeZoom": 0,
           "transitionPathId": ""
@@ -427,7 +427,7 @@
           "link": false,
           "referenceElementId": "path4591",
           "outlineElementId": "path3715-6-6",
-          "outlineElementAuto": true,
+          "outlineElementAuto": false,
           "transitionTimingFunction": "linear",
           "transitionRelativeZoom": 0,
           "transitionPathId": ""
@@ -441,7 +441,7 @@
           "height": 213.21768544524932,
           "opacity": 1,
           "angle": -0.034586284309625626,
-          "clipped": true,
+          "clipped": false,
           "clipXOffset": 0,
           "clipYOffset": 0,
           "clipWidthFactor": 1,
@@ -454,7 +454,7 @@
           "height": 32.5653660737792,
           "opacity": 1,
           "angle": 0,
-          "clipped": true,
+          "clipped": false,
           "clipXOffset": 0,
           "clipYOffset": 0,
           "clipWidthFactor": 1.0000000000000002,
@@ -465,8 +465,8 @@
         "layer1": {
           "deltaX": -0.9377447417011808,
           "deltaY": 41.87869950512743,
-          "widthFactor": 1.689581102430211,
-          "heightFactor": 2.7317385979433824,
+          "widthFactor": 1.6895811024302116,
+          "heightFactor": 2.7317385979433833,
           "deltaAngle": 179.96541371569037
         }
       }
@@ -474,8 +474,8 @@
     {
       "frameId": "frame9677",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -484,7 +484,7 @@
           "link": false,
           "referenceElementId": "path738",
           "outlineElementId": "path738",
-          "outlineElementAuto": true,
+          "outlineElementAuto": false,
           "transitionTimingFunction": "easeInOut",
           "transitionRelativeZoom": 0,
           "transitionPathId": ""
@@ -493,7 +493,7 @@
           "link": false,
           "referenceElementId": "path4591",
           "outlineElementId": "path738",
-          "outlineElementAuto": true,
+          "outlineElementAuto": false,
           "transitionTimingFunction": "easeInOut",
           "transitionRelativeZoom": 0,
           "transitionPathId": ""
@@ -503,11 +503,11 @@
         "layer1": {
           "cx": 212.6721465050731,
           "cy": 113.12320599653223,
-          "width": 249.10308220856086,
+          "width": 249.1030822085609,
           "height": 186.82731165642065,
           "opacity": 1,
           "angle": 0,
-          "clipped": true,
+          "clipped": false,
           "clipXOffset": 0,
           "clipYOffset": 0,
           "clipWidthFactor": 1,
@@ -520,7 +520,7 @@
           "height": 178.25340090745314,
           "opacity": 1,
           "angle": 0,
-          "clipped": true,
+          "clipped": false,
           "clipXOffset": 0,
           "clipYOffset": 0,
           "clipWidthFactor": 1,
@@ -540,8 +540,8 @@
     {
       "frameId": "frame5152",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -573,7 +573,7 @@
           "height": 217.34377762489345,
           "opacity": 1,
           "angle": 0,
-          "clipped": true,
+          "clipped": false,
           "clipXOffset": 0,
           "clipYOffset": 0,
           "clipWidthFactor": 1,
@@ -586,7 +586,7 @@
           "height": 208.1163250893862,
           "opacity": 1,
           "angle": 0,
-          "clipped": true,
+          "clipped": false,
           "clipXOffset": 0,
           "clipYOffset": 0,
           "clipWidthFactor": 1,
@@ -606,8 +606,8 @@
     {
       "frameId": "frame8073",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -672,8 +672,8 @@
     {
       "frameId": "frame3114",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -701,7 +701,7 @@
         "layer1": {
           "cx": 1076.5039981016323,
           "cy": 892.917804790976,
-          "width": 160.61041458549929,
+          "width": 160.6104145854993,
           "height": 120.45781093912447,
           "opacity": 1,
           "angle": -0.034586284309625626,
@@ -729,7 +729,7 @@
         "layer1": {
           "deltaX": -0.4258114686801946,
           "deltaY": 1.7044258847259925,
-          "widthFactor": 1.576418801874162,
+          "widthFactor": 1.5764188018741627,
           "heightFactor": 1.1739170023183005,
           "deltaAngle": -0.034586284309625626
         }
@@ -738,8 +738,8 @@
     {
       "frameId": "frame5929",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -804,8 +804,8 @@
     {
       "frameId": "frame5688",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -870,8 +870,8 @@
     {
       "frameId": "frame4478",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -936,8 +936,8 @@
     {
       "frameId": "frame4863",
       "title": "New frame",
-      "timeoutMs": 0,
-      "timeoutEnable": false,
+      "timeoutMs": 20000,
+      "timeoutEnable": true,
       "transitionDurationMs": 2000,
       "showInFrameList": true,
       "showFrameNumber": true,
@@ -993,8 +993,8 @@
         "layer1": {
           "deltaX": 10.217234657892021,
           "deltaY": 23.082751425921742,
-          "widthFactor": 2.665611171225504,
-          "heightFactor": 3.1959124006768294,
+          "widthFactor": 2.6656111712255046,
+          "heightFactor": 3.1959124006768302,
           "deltaAngle": 0
         }
       }
@@ -1002,7 +1002,7 @@
   ],
   "elementsToHide": [],
   "selectedFrames": [
-    "frame5688"
+    "frame4863"
   ],
   "selectedLayers": [
     "layer1",
