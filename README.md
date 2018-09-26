@@ -40,12 +40,12 @@ __Slide 8: What are our design considerations?__
 
 __Slide 9: What are the components that make our visualization cool?__
 - World maps
-- Time Charts
+- Time charts
 - Interactive stacked bar charts
 
 __Slide 10: How does our visualization compare to what others have done?__
 - We will use interactive design elements
-- We will use Original elements that are not familiar
+- We will use original elements that are not familiar
 
 __Slide 11: What are the technologies we plan to use?__
 - D3.js
@@ -56,10 +56,10 @@ __Slide 11: What are the technologies we plan to use?__
 __Slide 12: How are we going to design, build, and evaluate?__
 - Explain the Software Development Lifecycle
 - Understanding requirements
-- Designing and Coding
-- Testing and Maintenance
+- Designing and coding
+- Testing and maintenance
 
-__Slide 13: What are your deliverables?__
+__Slide 13: What are our deliverables?__
 - Project video
 - Web application
 - Project report
