@@ -11,16 +11,16 @@ __Slide 2: Why studying demographics is important?__
 - Project future populations
 - Identify implications
 
-__Slide 3: Who is the audience for our project?__
-- Youth
-- International business owners
-- Economists
-
-__Slide 4: Why is our visualization important and useful?__
+__Slide 3: Why is our visualization important and useful?__
 - For immediate anomaly detection as it is hard to interpret raw data
 - Public policy formations
 - Future trend analysis for business
 - Educate youth about overpopulation
+
+__Slide 4: Who is the audience for our project?__
+- Youth
+- International business owners
+- Economists
 
 __Slide 5: What are we telling with our visualization? What is the story?__
 - Help us to study past trends
