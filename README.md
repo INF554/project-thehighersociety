@@ -1,4 +1,4 @@
-# INF 554 Assignment 5 - Project
+# INF 554 Assignment 5 - Project Presentation
 
 ## Slide Sequence
 
