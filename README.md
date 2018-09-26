@@ -19,7 +19,7 @@ Slide 3: Why our project is interesting?
 
 Slide 4: Who is the audience for your project?
 - Youth
-- International Business owners
+- International business owners
 - Economists
 
 Slide 5: Why is our visualization and useful?
