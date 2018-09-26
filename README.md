@@ -9,7 +9,7 @@ __Slide 2: Why studying demographics is important?__
 - Analyze trends
 - Identify causes
 - Project future populations
-- Identify future populations
+- Identify implications
 
 __Slide 3: Who is the audience for our project?__
 - Youth
