@@ -2,75 +2,75 @@
 
 ## Slide Sequence
 
-Slide 1: Introduction
+__Slide 1: Introduction__
 - Project title, group name, member names, and email ids
 
-Slide 2: Why studying demographics is important? 
+__Slide 2: Why studying demographics is important?__
 - Analyze trends
 - Identify causes
 - Project future populations
 - Identify future populations
 
-Slide 3: Why our project is interesting?
+__Slide 3: Why our project is interesting?__
 - Help us to study past trends
 - Analyze impact of epidemics
 - Understand how populations of countries decrease due to agism
 - Impact of aged population on GDP, Healthcare etc.
 
-Slide 4: Who is the audience for your project?
+__Slide 4: Who is the audience for your project?__
 - Youth
 - International business owners
 - Economists
 
-Slide 5: Why is our visualization and useful?
+__Slide 5: Why is our visualization and useful?__
 - For immediate anomaly detection as it is hard to interpret raw data
 - Public policy formations
 - Future trend analysis for business
 - Educate youth about overpopulation
 
-Slide 6: What are we telling with our visualization? What is the story?
+__Slide 6: What are we telling with our visualization? What is the story?__
 - Ask others
 
-Slide 7: How do we plan to use interactive visuals?
+__Slide 7: How do we plan to use interactive visuals?__
 - World maps to analyze differences in population
 - Analyze impact using time charts
 
-Slide 8: What are our design considerations?
+__Slide 8: What are our design considerations?__
 - Talk about different aspects of the Visualization Wheel
 
-Slide 9: What are the components that make our visualization cool?
+__Slide 9: What are the components that make our visualization cool?__
 - World maps
 - Time Charts
 - Interactive stacked bar charts
 
-Slide 10: How does our visualization compare to what others have done?
+__Slide 10: How does our visualization compare to what others have done?__
 - We will use interactive design elements
 - We will use Original elements that are not familiar
 
-Slide 11: What are the technologies we plan to use?
+__Slide 11: What are the technologies we plan to use?__
 - D3.js
 - JavaScript
 - HTML 5
 - CSS 3
 
-Slide 12: How are we going to design, build, and evaluate?
+__Slide 12: How are we going to design, build, and evaluate?__
 - Explain the Software Development Lifecycle
 - Understanding requirements
 - Designing and Coding
 - Testing and Maintenance
 
-Slide 13: What are your deliverables?
+__Slide 13: What are your deliverables?__
 - Project video
 - Web application
 - Project report
 - Presentation
 
-Slide 14: How do you work together?
+__Slide 14: How do you work together?__
 - GitHub
 - Slack
 - Trello (Agile boards)
 
-Slide 15: What is your timeline?
+__Slide 15: What is your timeline?__
 - `Week -1` Data Cleaning
 - `Week -2` Set up website, start writing paper
 - `Week 1` Develop graphs
