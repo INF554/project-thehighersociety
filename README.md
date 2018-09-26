@@ -17,12 +17,12 @@ __Slide 3: Why our project is interesting?__
 - Understand how populations of countries decrease due to agism
 - Impact of aged population on GDP, Healthcare etc.
 
-__Slide 4: Who is the audience for your project?__
+__Slide 4: Who is the audience for our project?__
 - Youth
 - International business owners
 - Economists
 
-__Slide 5: Why is our visualization and useful?__
+__Slide 5: Why is our visualization important and useful?__
 - For immediate anomaly detection as it is hard to interpret raw data
 - Public policy formations
 - Future trend analysis for business
@@ -65,12 +65,12 @@ __Slide 13: What are your deliverables?__
 - Project report
 - Presentation
 
-__Slide 14: How do you work together?__
+__Slide 14: How do we work together?__
 - GitHub
 - Slack
 - Trello (Agile boards)
 
-__Slide 15: What is your timeline?__
+__Slide 15: What is our timeline?__
 - `Week -1` Data Cleaning
 - `Week -2` Set up website, start writing paper
 - `Week 1` Develop graphs
