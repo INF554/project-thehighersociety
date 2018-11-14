@@ -1,0 +1,982 @@
+[
+  {
+    "Region": "Nigeria",
+    "Year": 1950,
+    "Young": 15799,
+    "Middle": 20931,
+    "Old": 1131
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1955,
+    "Young": 17093,
+    "Middle": 22835,
+    "Old": 1159
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1960,
+    "Young": 18782,
+    "Middle": 25081,
+    "Old": 1275
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1965,
+    "Young": 21034,
+    "Middle": 27657,
+    "Old": 1438
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1970,
+    "Young": 23857,
+    "Middle": 30542,
+    "Old": 1583
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1975,
+    "Young": 27525,
+    "Middle": 34067,
+    "Old": 1783
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1980,
+    "Young": 32363,
+    "Middle": 39054,
+    "Old": 2044
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1985,
+    "Young": 37663,
+    "Middle": 43567,
+    "Old": 2384
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1990,
+    "Young": 42846,
+    "Middle": 49681,
+    "Old": 2741
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 1995,
+    "Young": 47783,
+    "Middle": 57127,
+    "Old": 3103
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 2000,
+    "Young": 53347,
+    "Middle": 65561,
+    "Old": 3444
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 2005,
+    "Young": 60672,
+    "Middle": 74461,
+    "Old": 3807
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 2010,
+    "Young": 69823,
+    "Middle": 84416,
+    "Old": 4342
+  },
+  {
+    "Region": "Nigeria",
+    "Year": 2015,
+    "Young": 79929,
+    "Middle": 96297,
+    "Old": 4958
+  },
+  {
+    "Region": "China",
+    "Year": 1950,
+    "Young": 188730,
+    "Middle": 341134,
+    "Old": 24557
+  },
+  {
+    "Region": "China",
+    "Year": 1955,
+    "Young": 228869,
+    "Middle": 357165,
+    "Old": 24801
+  },
+  {
+    "Region": "China",
+    "Year": 1960,
+    "Young": 260237,
+    "Middle": 373090,
+    "Old": 24359
+  },
+  {
+    "Region": "China",
+    "Year": 1965,
+    "Young": 296541,
+    "Middle": 401225,
+    "Old": 24796
+  },
+  {
+    "Region": "China",
+    "Year": 1970,
+    "Young": 332865,
+    "Middle": 460904,
+    "Old": 31020
+  },
+  {
+    "Region": "China",
+    "Year": 1975,
+    "Young": 366261,
+    "Middle": 516848,
+    "Old": 37834
+  },
+  {
+    "Region": "China",
+    "Year": 1980,
+    "Young": 354808,
+    "Middle": 592318,
+    "Old": 46751
+  },
+  {
+    "Region": "China",
+    "Year": 1985,
+    "Young": 328597,
+    "Middle": 685149,
+    "Old": 57117
+  },
+  {
+    "Region": "China",
+    "Year": 1990,
+    "Young": 337208,
+    "Middle": 768971,
+    "Old": 66267
+  },
+  {
+    "Region": "China",
+    "Year": 1995,
+    "Young": 339934,
+    "Middle": 823614,
+    "Old": 76396
+  },
+  {
+    "Region": "China",
+    "Year": 2000,
+    "Young": 316040,
+    "Middle": 878511,
+    "Old": 88647
+  },
+  {
+    "Region": "China",
+    "Year": 2005,
+    "Young": 262894,
+    "Middle": 957033,
+    "Old": 101697
+  },
+  {
+    "Region": "China",
+    "Year": 2010,
+    "Young": 242692,
+    "Middle": 1002841,
+    "Old": 114223
+  },
+  {
+    "Region": "China",
+    "Year": 2015,
+    "Young": 247072,
+    "Middle": 1014776,
+    "Old": 135177
+  },
+  {
+    "Region": "Japan",
+    "Year": 1950,
+    "Young": 29288,
+    "Middle": 49447,
+    "Old": 4066
+  },
+  {
+    "Region": "Japan",
+    "Year": 1955,
+    "Young": 29919,
+    "Middle": 54427,
+    "Old": 4672
+  },
+  {
+    "Region": "Japan",
+    "Year": 1960,
+    "Young": 28349,
+    "Middle": 60058,
+    "Old": 5266
+  },
+  {
+    "Region": "Japan",
+    "Year": 1965,
+    "Young": 25464,
+    "Middle": 66914,
+    "Old": 6071
+  },
+  {
+    "Region": "Japan",
+    "Year": 1970,
+    "Young": 25301,
+    "Middle": 72409,
+    "Old": 7212
+  },
+  {
+    "Region": "Japan",
+    "Year": 1975,
+    "Young": 27437,
+    "Middle": 76328,
+    "Old": 8659
+  },
+  {
+    "Region": "Japan",
+    "Year": 1980,
+    "Young": 27790,
+    "Middle": 79537,
+    "Old": 10503
+  },
+  {
+    "Region": "Japan",
+    "Year": 1985,
+    "Young": 26381,
+    "Middle": 83187,
+    "Old": 12325
+  },
+  {
+    "Region": "Japan",
+    "Year": 1990,
+    "Young": 23003,
+    "Middle": 86736,
+    "Old": 14776
+  },
+  {
+    "Region": "Japan",
+    "Year": 1995,
+    "Young": 20530,
+    "Middle": 87775,
+    "Old": 18067
+  },
+  {
+    "Region": "Japan",
+    "Year": 2000,
+    "Young": 18854,
+    "Middle": 87017,
+    "Old": 21662
+  },
+  {
+    "Region": "Japan",
+    "Year": 2005,
+    "Young": 17747,
+    "Middle": 85367,
+    "Old": 25223
+  },
+  {
+    "Region": "Japan",
+    "Year": 2010,
+    "Young": 17166,
+    "Middle": 82461,
+    "Old": 28923
+  },
+  {
+    "Region": "Japan",
+    "Year": 2015,
+    "Young": 16626,
+    "Middle": 78056,
+    "Old": 33294
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1950,
+    "Young": 15630,
+    "Middle": 20780,
+    "Old": 1480
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1955,
+    "Young": 17302,
+    "Middle": 23548,
+    "Old": 1271
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1960,
+    "Young": 20172,
+    "Middle": 26736,
+    "Old": 1293
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1965,
+    "Young": 24160,
+    "Middle": 30193,
+    "Old": 1481
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1970,
+    "Young": 29211,
+    "Middle": 34050,
+    "Old": 1785
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1975,
+    "Young": 32157,
+    "Middle": 36996,
+    "Old": 2153
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1980,
+    "Young": 36528,
+    "Middle": 42458,
+    "Old": 2485
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1985,
+    "Young": 40836,
+    "Middle": 49568,
+    "Old": 2796
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1990,
+    "Young": 44953,
+    "Middle": 57919,
+    "Old": 3315
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 1995,
+    "Young": 47394,
+    "Middle": 67313,
+    "Old": 3999
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 2000,
+    "Young": 48765,
+    "Middle": 77775,
+    "Old": 5040
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 2005,
+    "Young": 49398,
+    "Middle": 87923,
+    "Old": 6112
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 2010,
+    "Young": 48862,
+    "Middle": 96153,
+    "Old": 7134
+  },
+  {
+    "Region": "Bangladesh",
+    "Year": 2015,
+    "Young": 47429,
+    "Middle": 105650,
+    "Old": 8122
+  },
+  {
+    "Region": "India",
+    "Year": 1950,
+    "Young": 141087,
+    "Middle": 223428,
+    "Old": 11812
+  },
+  {
+    "Region": "India",
+    "Year": 1955,
+    "Young": 158598,
+    "Middle": 237746,
+    "Old": 12924
+  },
+  {
+    "Region": "India",
+    "Year": 1960,
+    "Young": 181162,
+    "Middle": 254567,
+    "Old": 13752
+  },
+  {
+    "Region": "India",
+    "Year": 1965,
+    "Young": 206121,
+    "Middle": 275490,
+    "Old": 16090
+  },
+  {
+    "Region": "India",
+    "Year": 1970,
+    "Young": 226128,
+    "Middle": 309080,
+    "Old": 18371
+  },
+  {
+    "Region": "India",
+    "Year": 1975,
+    "Young": 248930,
+    "Middle": 350664,
+    "Old": 21707
+  },
+  {
+    "Region": "India",
+    "Year": 1980,
+    "Young": 273442,
+    "Middle": 398060,
+    "Old": 25281
+  },
+  {
+    "Region": "India",
+    "Year": 1985,
+    "Young": 302702,
+    "Middle": 449822,
+    "Old": 29142
+  },
+  {
+    "Region": "India",
+    "Year": 1990,
+    "Young": 330035,
+    "Middle": 506786,
+    "Old": 33311
+  },
+  {
+    "Region": "India",
+    "Year": 1995,
+    "Young": 351813,
+    "Middle": 569664,
+    "Old": 39006
+  },
+  {
+    "Region": "India",
+    "Year": 2000,
+    "Young": 365775,
+    "Middle": 640951,
+    "Old": 46326
+  },
+  {
+    "Region": "India",
+    "Year": 2005,
+    "Young": 375115,
+    "Middle": 714450,
+    "Old": 54552
+  },
+  {
+    "Region": "India",
+    "Year": 2010,
+    "Young": 380274,
+    "Middle": 787764,
+    "Old": 62943
+  },
+  {
+    "Region": "India",
+    "Year": 2015,
+    "Young": 375146,
+    "Middle": 860126,
+    "Old": 73781
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1950,
+    "Young": 15142,
+    "Middle": 20307,
+    "Old": 2094
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1955,
+    "Young": 15892,
+    "Middle": 22553,
+    "Old": 1979
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1960,
+    "Young": 17587,
+    "Middle": 25376,
+    "Old": 1943
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1965,
+    "Young": 20548,
+    "Middle": 28286,
+    "Old": 2009
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1970,
+    "Young": 24629,
+    "Middle": 31252,
+    "Old": 2211
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1975,
+    "Young": 28787,
+    "Middle": 35467,
+    "Old": 2533
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1980,
+    "Young": 33508,
+    "Middle": 41561,
+    "Old": 2997
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1985,
+    "Young": 39290,
+    "Middle": 49359,
+    "Old": 3570
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1990,
+    "Young": 46311,
+    "Middle": 57165,
+    "Old": 4201
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 1995,
+    "Young": 52445,
+    "Middle": 65490,
+    "Old": 4893
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 2000,
+    "Young": 56931,
+    "Middle": 75930,
+    "Old": 5663
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 2005,
+    "Young": 58724,
+    "Middle": 88641,
+    "Old": 6544
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 2010,
+    "Young": 61714,
+    "Middle": 101313,
+    "Old": 7533
+  },
+  {
+    "Region": "Pakistan",
+    "Year": 2015,
+    "Young": 66319,
+    "Middle": 114566,
+    "Old": 8495
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1950,
+    "Young": 27241,
+    "Middle": 39547,
+    "Old": 2754
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1955,
+    "Young": 29727,
+    "Middle": 44658,
+    "Old": 2945
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1960,
+    "Young": 35002,
+    "Middle": 49646,
+    "Old": 3145
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1965,
+    "Young": 42297,
+    "Middle": 54654,
+    "Old": 3361
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1970,
+    "Young": 49634,
+    "Middle": 61392,
+    "Old": 3807
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1975,
+    "Young": 55617,
+    "Middle": 70597,
+    "Old": 4510
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1980,
+    "Young": 60586,
+    "Middle": 81611,
+    "Old": 5291
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1985,
+    "Young": 64423,
+    "Middle": 94593,
+    "Old": 5997
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1990,
+    "Young": 66104,
+    "Middle": 108466,
+    "Old": 6866
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 1995,
+    "Young": 66295,
+    "Middle": 122480,
+    "Old": 8181
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 2000,
+    "Young": 64914,
+    "Middle": 136665,
+    "Old": 9963
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 2005,
+    "Young": 68127,
+    "Middle": 147729,
+    "Old": 10857
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 2010,
+    "Young": 70254,
+    "Middle": 160510,
+    "Old": 11762
+  },
+  {
+    "Region": "Indonesia",
+    "Year": 2015,
+    "Young": 71922,
+    "Middle": 173086,
+    "Old": 13152
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1950,
+    "Young": 11893,
+    "Middle": 15150,
+    "Old": 971
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1955,
+    "Young": 14544,
+    "Middle": 16992,
+    "Old": 1068
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1960,
+    "Young": 17532,
+    "Middle": 19357,
+    "Old": 1283
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1965,
+    "Young": 20928,
+    "Middle": 22106,
+    "Old": 1592
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1970,
+    "Young": 24204,
+    "Middle": 25884,
+    "Old": 1940
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1975,
+    "Young": 28290,
+    "Middle": 30311,
+    "Old": 2268
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1980,
+    "Young": 31394,
+    "Middle": 35308,
+    "Old": 2662
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1985,
+    "Young": 33113,
+    "Middle": 41211,
+    "Old": 3034
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1990,
+    "Young": 33332,
+    "Middle": 48381,
+    "Old": 3643
+  },
+  {
+    "Region": "Mexico",
+    "Year": 1995,
+    "Young": 34055,
+    "Middle": 55625,
+    "Old": 4365
+  },
+  {
+    "Region": "Mexico",
+    "Year": 2000,
+    "Young": 34844,
+    "Middle": 61745,
+    "Old": 5129
+  },
+  {
+    "Region": "Mexico",
+    "Year": 2005,
+    "Young": 35032,
+    "Middle": 67606,
+    "Old": 5834
+  },
+  {
+    "Region": "Mexico",
+    "Year": 2010,
+    "Young": 34961,
+    "Middle": 75435,
+    "Old": 6921
+  },
+  {
+    "Region": "Mexico",
+    "Year": 2015,
+    "Young": 34586,
+    "Middle": 83145,
+    "Old": 8157
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1950,
+    "Young": 22432,
+    "Middle": 29936,
+    "Old": 1604
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1955,
+    "Young": 26320,
+    "Middle": 34353,
+    "Old": 1897
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1960,
+    "Young": 31152,
+    "Middle": 38781,
+    "Old": 2274
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1965,
+    "Young": 36228,
+    "Middle": 44480,
+    "Old": 2793
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1970,
+    "Young": 40225,
+    "Middle": 51818,
+    "Old": 3282
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1975,
+    "Young": 43367,
+    "Middle": 60344,
+    "Old": 3903
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1980,
+    "Young": 46454,
+    "Middle": 70144,
+    "Old": 4561
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1985,
+    "Young": 50253,
+    "Middle": 80232,
+    "Old": 5190
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1990,
+    "Young": 52959,
+    "Middle": 90355,
+    "Old": 6038
+  },
+  {
+    "Region": "Brazil",
+    "Year": 1995,
+    "Young": 53556,
+    "Middle": 101449,
+    "Old": 7293
+  },
+  {
+    "Region": "Brazil",
+    "Year": 2000,
+    "Young": 52798,
+    "Middle": 113613,
+    "Old": 8880
+  },
+  {
+    "Region": "Brazil",
+    "Year": 2005,
+    "Young": 51301,
+    "Middle": 124577,
+    "Old": 11039
+  },
+  {
+    "Region": "Brazil",
+    "Year": 2010,
+    "Young": 49005,
+    "Middle": 134538,
+    "Old": 13252
+  },
+  {
+    "Region": "Brazil",
+    "Year": 2015,
+    "Young": 46362,
+    "Middle": 143202,
+    "Old": 16395
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1950,
+    "Young": 42596,
+    "Middle": 103167,
+    "Old": 13042
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1955,
+    "Young": 50441,
+    "Middle": 106257,
+    "Old": 15088
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1960,
+    "Young": 57326,
+    "Middle": 112436,
+    "Old": 17049
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1965,
+    "Young": 60078,
+    "Middle": 120828,
+    "Old": 18914
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1970,
+    "Young": 58893,
+    "Middle": 129570,
+    "Old": 21125
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1975,
+    "Young": 54815,
+    "Middle": 140849,
+    "Old": 23539
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1980,
+    "Young": 52133,
+    "Middle": 151068,
+    "Old": 26563
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1985,
+    "Young": 52039,
+    "Middle": 159567,
+    "Old": 29221
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1990,
+    "Young": 54758,
+    "Middle": 165892,
+    "Old": 31883
+  },
+  {
+    "Region": "United States of America",
+    "Year": 1995,
+    "Young": 58506,
+    "Middle": 173542,
+    "Old": 33612
+  },
+  {
+    "Region": "United States of America",
+    "Year": 2000,
+    "Young": 61191,
+    "Middle": 186051,
+    "Old": 34740
+  },
+  {
+    "Region": "United States of America",
+    "Year": 2005,
+    "Young": 61624,
+    "Middle": 197222,
+    "Old": 36285
+  },
+  {
+    "Region": "United States of America",
+    "Year": 2010,
+    "Young": 62259,
+    "Middle": 206343,
+    "Old": 40039
+  },
+  {
+    "Region": "United States of America",
+    "Year": 2015,
+    "Young": 61468,
+    "Middle": 211624,
+    "Old": 46839
+  }
+]
