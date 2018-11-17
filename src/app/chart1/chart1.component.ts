@@ -46,8 +46,6 @@ export class Chart1Component implements OnInit {
       width = <any>svg.attr("width") - margin.left - margin.right,
       height = <any>svg.attr("height") - margin.top - margin.bottom;
 
-
-    var parseDate = d3.timeParse("%Y");
     var x = d3.scaleTime().range([0, width]),
       y = d3.scaleLinear().range([height, 0]),
       z = d3.scaleOrdinal(d3.schemeCategory10);
@@ -68,30 +66,55 @@ export class Chart1Component implements OnInit {
     var yAxis = g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")");
-
+var is_pct=false;
       updateGraph(data1);
-      function updateGraph(data) {
+      
+        d3.select('#pp').on("click", function () { 
+          is_pct=false;
+          updateGraph(data1);
+
+          });
+        d3.select('#pppct').on("click", function () { 
+          is_pct=true;
+          updateGraph(data1);
+        });
   
+        
+
+
+
+      function updateGraph(data) {
+       
+
+        
         
         var country = data[0].Region;
         data.map(x => !x.Region);
+        if(is_pct){
+          var title = "Percentage of Age in "+country;
+        }
+        else{
+          var title = "Age Distribution in "+country;
+        }
+      d3.select("#title").text(title)
+        
         var keys = data.columns.slice(1);
   
-        d3.select('#showme').on("click", function () { });
-        d3.select('#hideme').on("click", function () { });
+       if(is_pct) {
+         data = data.map(function (d, i) {
   
-        // var newDataset = data.map(function (d, i) {
+          var sum = d.Middle + d.Young + d.Old;
+          
+          return { Year: d.Year, Middle: d.Middle * 100 / sum, Old: d.Old * 100 / sum, Young: d.Young * 100 / sum };
   
-        //   var sum = d.Middle + d.Young + d.Old;
-  
-        //   return { Year: d.Year, Middle: d.Middle * 100 / sum, Old: d.Old * 100 / sum, Young: d.Young * 100 / sum };
-  
-        // });
-        // y.domain([0, 100])
-        // data=newDataset; 
-  
-  
-        y.domain([0, d3.max(data, function (d) { return d['Young'] + d['Middle'] + d['Old'] + 300; })]);
+        });
+        y.domain([0, 100]);
+      }
+      else{
+       
+        y.domain([0, <any>d3.max(data, function (d) { return d['Young'] + d['Middle'] + d['Old'] + 300; })]);
+       
+      }
         var xyz = d3.extent(data, function (d) { return d['Year'] })
         x.domain(<any>xyz);
         z.domain(keys);
@@ -106,29 +129,17 @@ export class Chart1Component implements OnInit {
         var layer_selection_enter = layer_selection.enter().append("g")
                                             .attr("class", "layer");
           
-        // var path_areas_selection = layer_selection_enter.selectAll(".area").data(function(d){
-        //   console.log(d);
-        //   return [d]
-        // })
         
-        // var path_areas_enter = path_areas_selection.enter().append("path").attr("class","area");
-
-        // console.log(path_areas_selection);
-        // var path_areas = layer_selection.selectAll(".area").data(function(d){
-        //   console.log(d)
-        //   return [d];
-        // })
 
         layer_selection_enter.append("path").attr("class","area")
 
         g.selectAll(".layer").select(".area")
             .style("fill", function (d) { 
-              console.log(d);
-              return z(d.key); })
+              return z(d['key']); })
             .attr("d", <any>area);
         
   
-        layer_selection_enter//.filter(function(d) { return d[d.length - 1][1] - d[d.length - 1][0] > 0.01; })
+        layer_selection_enter.filter(function(d) { return d[d.length - 1][1] - d[d.length - 1][0] > 0.01; })
           .append("text")
           .attr("x", width - 6)
           .attr("y", function (d) { return y((d[d.length - 1][0] + d[d.length - 1][1]) / 2); })
