@@ -26,8 +26,7 @@ export class Chart1Component implements OnInit {
     }
 
 
-    d3.csv("assets/temp_age_distr.csv", type).then(function (data) {
-
+    d3.csv("assets/age_distribution.csv", type).then(function (data) {
       d3.select('#countries')
         .on("change", function () {
           var selection = d3.select('select').property('value');
@@ -127,6 +126,7 @@ var is_pct=false;
                                 .data(stack(data))
           
         var layer_selection_enter = layer_selection.enter().append("g")
+                                            // .transition().duration(600)
                                             .attr("class", "layer");
           
         
@@ -136,6 +136,7 @@ var is_pct=false;
         g.selectAll(".layer").select(".area")
             .style("fill", function (d) { 
               return z(d['key']); })
+              .transition().duration(800)
             .attr("d", <any>area);
         
   
@@ -151,7 +152,7 @@ var is_pct=false;
   
   
         yAxis.call(d3.axisBottom(x));
-        xAxis.call(d3.axisLeft(y).ticks(10));
+        xAxis.transition().duration(800).call(<any>d3.axisLeft(y).ticks(10));
   
   
         layer_selection.exit().remove();
