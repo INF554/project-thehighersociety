@@ -68,7 +68,7 @@ export class Chart1Component implements OnInit {
         var min = d3.min(data, function(d) { return d['Ratio']; });
         var max = d3.max(data, function(d) { return d['Ratio']; })
         x.domain(<any>xyz);
-        y.domain([1, 3.0]);
+        y.domain([1.0, 3.0]);
         xAxis.call(d3.axisBottom(x));
         yAxis.call(<any>d3.axisLeft(y).ticks(10));
   
