@@ -44,7 +44,7 @@ export class Chart1Component implements OnInit {
       var data1 = data.filter(x => x['Region'] == selection);
       data1['columns'] = data.columns.slice(1);
       var svg = d3.select("svg"),
-      margin = { top: 9, right: 150, bottom: 30, left: 50 },
+      margin = { top: 10, right: 150, bottom: 60, left: 100 },
       width = <any>svg.attr("width") - margin.left - margin.right,
       height = <any>svg.attr("height") - margin.top - margin.bottom;
 
@@ -80,7 +80,7 @@ export class Chart1Component implements OnInit {
     var legendText = svg.append('text')
 
     legendText.attr("x", 1090)
-              .attr("y", 255)
+              .attr("y", 230)
               .attr("dy", ".35em")
               .style("font", "14px sans-serif")
               .style("text-anchor", "end")
@@ -98,7 +98,26 @@ export class Chart1Component implements OnInit {
     var yAxis = g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")");
-var is_pct=false;
+
+    var xLab = svg.append('text')
+
+    xLab.attr("x", 535)
+                .attr("y", 625)
+                .attr("dy", ".35em")
+                .style("font", "11px sans-serif")
+                .style("text-anchor", "end")
+                .text("Year");
+    
+    var yLab = svg.append('text').attr("class", "yLab")
+
+    yLab.attr("x", -210)
+                .attr("y", 40)
+                .attr("dy", ".35em")
+                .attr("transform", "rotate(-90)")
+                .style("font", "11px sans-serif")
+                .style("text-anchor", "end")
+                .text("Population (in Million / 10)");
+    var is_pct=false;
       updateGraph(data1);
       
         d3.select('#pp').on("click", function () { 
@@ -125,11 +144,24 @@ var is_pct=false;
         data.map(x => !x.Region);
         if(is_pct){
           var title = "Percentage of Age in "+country;
+          var ylab = "Percentage";
+          var X = -270;
+          var Y = 50
         }
         else{
           var title = "Age Distribution in "+country;
+          var ylab = "Population (in Million / 10)";
+          var X = -210;
+          var Y = 50;
         }
-      d3.select("#title").text(title)
+      d3.select("#title").style("font-weight", "bold").text(title)
+      yLab.transition().duration(800).attr("x", X)
+                .attr("y", Y)
+                .attr("dy", ".35em")
+                .attr("transform", "rotate(-90)")
+                .style("font", "11px sans-serif")
+                .style("text-anchor", "end")
+                .text(ylab);
         
         var keys = data.columns.slice(1);
   
