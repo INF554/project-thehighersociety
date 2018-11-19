@@ -17,7 +17,6 @@ export class Chart1Component implements OnInit {
 
 
 
-
     function type(d, i, columns) {
       d.Year = d3.timeParse("%Y")(d.Year);
 
@@ -25,6 +24,56 @@ export class Chart1Component implements OnInit {
       return d;
     }
 
+    d3.json("assets/processed_dep_ratio.json").then(<any>function (data) {
+      data.forEach(function(d) {
+        d['Year'] = d3.timeParse("%Y")(d['Year']);
+      });
+      data.forEach(function(d) {
+        d.Ratio = +d.Ratio;
+        d.active = true;
+      });
+
+      // console.log(data);
+      var svg = d3.select("#chart2"),
+            margin = {top: 50, right: 20, bottom: 30, left: 160},
+            width = <any>svg.attr("width") - margin.left - margin.right,
+            height = <any>svg.attr("height") - margin.top - margin.bottom;
+      
+      var x = d3.scaleTime().range([0, width]);
+      var y = d3.scaleLinear().range([height, 0]);
+      var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+      // Define the line
+      var stateline = d3.line()
+                            // .interpolate("cardinal")
+                            .x(function(d) { return x(d['Year']); })
+                            .y(function(d) { return y(d['Ratio']); });
+
+      var g = svg.append("g")
+                  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var yAxis = g.append("g")
+                    .attr("class", "axisY")
+
+      var xAxis = g.append("g")
+                    .attr("class", "axisX")
+                    .attr("transform", "translate(0," + height + ")");
+      
+      updateGraph1(data);
+      
+      
+      function updateGraph1(data){
+        console.log(data);
+        var xyz = d3.extent(data, function (d) { return d['Year'] })
+        var min = d3.min(data, function(d) { return d['Ratio']; });
+        var max = d3.max(data, function(d) { return d['Ratio']; })
+        x.domain(<any>xyz);
+        y.domain([1, 3.0]);
+        xAxis.call(d3.axisBottom(x));
+        yAxis.call(<any>d3.axisLeft(y).ticks(10));
+  
+      }
+    });
 
     d3.csv("assets/processed_age_distribution.csv", type).then(function (data) {
       var selection = d3.select('select').property('value');
@@ -43,7 +92,7 @@ export class Chart1Component implements OnInit {
 
       var data1 = data.filter(x => x['Region'] == selection);
       data1['columns'] = data.columns.slice(1);
-      var svg = d3.select("svg"),
+      var svg = d3.select("#chart1"),
       margin = { top: 10, right: 150, bottom: 60, left: 100 },
       width = <any>svg.attr("width") - margin.left - margin.right,
       height = <any>svg.attr("height") - margin.top - margin.bottom;
