@@ -26,7 +26,7 @@ export class Chart1Component implements OnInit {
     }
 
 
-    d3.csv("assets/age_distribution.csv", type).then(function (data) {
+    d3.csv("assets/processed_age_distribution.csv", type).then(function (data) {
       var selection = d3.select('select').property('value');
       var data1 = data.filter(x => x['Region'] == selection);
       d3.select('#countries')
