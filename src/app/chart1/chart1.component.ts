@@ -33,7 +33,7 @@ export class Chart1Component implements OnInit {
         d.active = true;
       });
 
-      // console.log(data);
+      
       var svg = d3.select("#chart2"),
             margin = {top: 50, right: 20, bottom: 30, left: 160},
             width = <any>svg.attr("width") - margin.left - margin.right,
@@ -63,14 +63,43 @@ export class Chart1Component implements OnInit {
       
       
       function updateGraph1(data){
-        console.log(data);
+        
         var xyz = d3.extent(data, function (d) { return d['Year'] })
         var min = d3.min(data, function(d) { return d['Ratio']; });
         var max = d3.max(data, function(d) { return d['Ratio']; })
+
         x.domain(<any>xyz);
         y.domain([1.0, 3.0]);
         xAxis.call(d3.axisBottom(x));
         yAxis.call(<any>d3.axisLeft(y).ticks(10));
+
+        var dataNest = d3.nest()
+                          .key(function(d) {console.log(d);return d['Country'];})
+                          .entries(data);
+        
+        // var result = dataNest.filter(function(val,idx, arr){
+        //   console.log(val);
+        //   // console.log(idx);
+        //   // console.log(arr);
+        //   // return $("." + val.key).attr("fill") != "#ccc" 
+        //   // matching the data with selector status
+        // })
+        
+        // var state = svg.selectAll(".line")
+        //                 .data(result, function(d){return d.key});
+
+        // state.enter().append("path")
+        //      .attr("class", "line");
+
+        // state.transition()
+        //       .style("stroke", function(d,i) { return d.color = color(d.key); })
+        //       .attr("id", function(d){ return 'tag'+d.key.replace(/\s+/g, '');}) // assign ID
+        //       .attr("d", function(d){
+            
+        //         return stateline(d.values)
+        //       });
+
+        // state.exit().remove();
   
       }
     });
@@ -187,7 +216,7 @@ export class Chart1Component implements OnInit {
        
 
         
-       // console.log((data));
+       
         var country = data[0].Region;
 
         data.map(x => !x.Region);
