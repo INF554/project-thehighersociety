@@ -29,6 +29,7 @@ export class Chart1Component implements OnInit {
     d3.csv("assets/processed_age_distribution.csv", type).then(function (data) {
       var selection = d3.select('select').property('value');
       var data1 = data.filter(x => x['Region'] == selection);
+      
       d3.select('#countries')
         .on("change", function () {
           var selection = d3.select('select').property('value');
@@ -43,7 +44,7 @@ export class Chart1Component implements OnInit {
       var data1 = data.filter(x => x['Region'] == selection);
       data1['columns'] = data.columns.slice(1);
       var svg = d3.select("svg"),
-      margin = { top: 9, right: 20, bottom: 30, left: 50 },
+      margin = { top: 9, right: 150, bottom: 30, left: 50 },
       width = <any>svg.attr("width") - margin.left - margin.right,
       height = <any>svg.attr("height") - margin.top - margin.bottom;
 
@@ -55,6 +56,36 @@ export class Chart1Component implements OnInit {
       .x(function (d, i) { return x(d['data']['Year']); })
       .y0(function (d) { return y(d[0]); })
       .y1(function (d) { return y(d[1]); });
+
+    var legend = svg.selectAll('g')
+      .data(['<14', '15-64', '65+'])
+      .enter()
+      .append('g')
+      .attr('class', 'legend');
+
+    legend.append('rect')
+      .attr('x', 1010)
+      .attr('y', function(d, i) { return height - (330 - i*30); })
+      .attr('width', 10)
+      .attr('height', 10)
+      .style('fill', function(d, i) { return z(i.toString()); });
+    
+    legend.append('text')
+      .attr('x', 1030)
+      .attr('y', function(d, i) { return height - (326 - i*30); })
+      .attr("dy", ".35em")
+      .style("font", "12px sans-serif")
+      .text(function(d) { return d; });
+    
+    var legendText = svg.append('text')
+
+    legendText.attr("x", 1090)
+              .attr("y", 255)
+              .attr("dy", ".35em")
+              .style("font", "14px sans-serif")
+              .style("text-anchor", "end")
+              .style("font-weight", "bold")
+              .text("Age Groups");
 
 
     var g = svg.append("g")
@@ -143,14 +174,14 @@ var is_pct=false;
             .attr("d", <any>area);
         
   
-        layer_selection_enter.filter(function(d) { return d[d.length - 1][1] - d[d.length - 1][0] > 0.01; })
-          .append("text")
-          .attr("x", width - 6)
-          .attr("y", function (d) { return y((d[d.length - 1][0] + d[d.length - 1][1]) / 2); })
-          .attr("dy", ".35em")
-          .style("font", "10px sans-serif")
-          .style("text-anchor", "end")
-          .text(function (d) { return d.key; });
+        // layer_selection_enter.filter(function(d) { return d[d.length - 1][1] - d[d.length - 1][0] > 0.01; })
+        //   .append("text")
+        //   .attr("x", width - 6)
+        //   .attr("y", function (d) { return y((d[d.length - 1][0] + d[d.length - 1][1]) / 2); })
+        //   .attr("dy", ".35em")
+        //   .style("font", "10px sans-serif")
+        //   .style("text-anchor", "end")
+        //   .text(function (d) { return d.key; });
   
   
   
