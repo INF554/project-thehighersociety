@@ -27,10 +27,12 @@ export class Chart1Component implements OnInit {
 
 
     d3.csv("assets/age_distribution.csv", type).then(function (data) {
+      var selection = d3.select('select').property('value');
+      var data1 = data.filter(x => x['Region'] == selection);
       d3.select('#countries')
         .on("change", function () {
           var selection = d3.select('select').property('value');
-          var data1 = data.filter(x => x['Region'] == selection);
+          data1 = data.filter(x => x['Region'] == selection);
           data1['columns'] = data.columns.slice(1);
 
           updateGraph(data1);
@@ -38,7 +40,7 @@ export class Chart1Component implements OnInit {
 
 
 
-      var data1 = data.filter(x => x['Region'] == 'Nigeria');
+      var data1 = data.filter(x => x['Region'] == selection);
       data1['columns'] = data.columns.slice(1);
       var svg = d3.select("svg"),
       margin = { top: 9, right: 20, bottom: 30, left: 50 },
@@ -86,8 +88,9 @@ var is_pct=false;
        
 
         
-        
+       // console.log((data));
         var country = data[0].Region;
+
         data.map(x => !x.Region);
         if(is_pct){
           var title = "Percentage of Age in "+country;
@@ -120,13 +123,13 @@ var is_pct=false;
   
         stack.keys(keys);
         
-        console.log(stack(data));
+        
   
         var layer_selection = g.selectAll(".layer")
                                 .data(stack(data))
           
         var layer_selection_enter = layer_selection.enter().append("g")
-                                            // .transition().duration(600)
+                                            // .transition().duration(400)
                                             .attr("class", "layer");
           
         
