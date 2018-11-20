@@ -24,131 +24,6 @@ export class Chart1Component implements OnInit {
       return d;
     }
 
-    d3.json("assets/processed_dep_ratio.json").then(<any>function (data) {
-      data.forEach(function(d) {
-        d['Year'] = d3.timeParse("%Y")(d['Year']);
-      });
-      data.forEach(function(d) {
-        d.Ratio = +d.Ratio;
-        d.active = true;
-      });
-
-      
-      var svg = d3.select("#chart2"),
-            margin = {top: 50, right: 20, bottom: 30, left: 160},
-            width = <any>svg.attr("width") - margin.left - margin.right,
-            height = <any>svg.attr("height") - margin.top - margin.bottom;
-      
-      var x = d3.scaleTime().range([0, width]);
-      var y = d3.scaleLinear().range([height, 0]);
-      var color = d3.scaleOrdinal(d3.schemeCategory10);
-
-      // Define the line
-      var stateline = d3.line()
-                            // .interpolate("cardinal")
-                            .x(function(d) { return x(d['Year']); })
-                            .y(function(d) { return y(d['Ratio']); });
-
-      var g = svg.append("g")
-                  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-      var yAxis = g.append("g")
-                    .attr("class", "axisY")
-
-      var xAxis = g.append("g")
-                    .attr("class", "axisX")
-                    .attr("transform", "translate(0," + height + ")");
-      
-      updateGraph1(data);
-<<<<<<< HEAD
-
-
-      function updateGraph1(data) {
-
-        
-        var min = d3.min(data, function (d) { return d['Ratio']; });
-        var max = d3.max(data, function (d) { return d['Ratio']; })
-=======
-      
-      
-      function updateGraph1(data){
-        
-        var xyz = d3.extent(data, function (d) { return d['Year'] })
-        var min = d3.min(data, function(d) { return d['Ratio']; });
-        var max = d3.max(data, function(d) { return d['Ratio']; })
->>>>>>> c16e2f052b7aef36a55d4558b08eb34f41da8e09
-
-        x.domain(<any>d3.extent(data, function (d) { return d['Year'] }));
-        y.domain([1.0, 3.0]);
-        xAxis.call(d3.axisBottom(x));
-        yAxis.call(<any>d3.axisLeft(y).ticks(10));
-
-       // -----------
-        var dataNest = d3.nest()
-<<<<<<< HEAD
-          .key(function (d) { return d['Country']; })
-          .entries(data);
-          console.log(dataNest);
-
-
-        // var result = dataNest.filter(function(val,idx, arr){
-        //   console.log(val);
-        //   // console.log(idx);
-        //   // console.log(arr);
-        //   // return $("." + val.key).attr("fill") != "#ccc" 
-        //   // matching the data with selector status
-        // })
-
-        // var state = svg.selectAll(".line")
-        //                 .data(result, function(d){return d.key});
-
-        // state.enter().append("path")
-        //      .attr("class", "line");
-
-        // state.transition()
-        //       .style("stroke", function(d,i) { return d.color = color(d.key); })
-        //       .attr("id", function(d){ return 'tag'+d.key.replace(/\s+/g, '');}) // assign ID
-        //       .attr("d", function(d){
-
-        //         return stateline(d.values)
-        //       });
-
-        // state.exit().remove();
-
-=======
-                          .key(function(d) {return d['Region'];})
-                          .entries(data);
-
-
- 		var result = dataNest.filter(function(val,idx, arr){
-          return this("." + val.key).attr("fill") != "#ccc" 
-          return true;
-				  // matching the data with selector status
-				})
-				
-				
- 		var state = g.selectAll(".line")
-      .data(result, function(d){return d['key']});
-
-		state.enter().append("path")
-			.attr("class", "line");
-
-		state.transition()
-			.style("stroke", function(d,i) {console.log(d); return d['color'] = color(d.key); })
-			.attr("id", function(d){ return 'tag'+d.key.replace(/\s+/g, '');}) // assign ID
-			.attr("d", function(d){
-		
-				return stateline(d.values)
-			});
-
-		state.exit().remove();
-                      
-        //----------
-        
-  
->>>>>>> c16e2f052b7aef36a55d4558b08eb34f41da8e09
-      }
-    });
 
     d3.csv("assets/processed_age_distribution.csv", type).then(function (data) {
       var selection = d3.select('select').property('value');
@@ -159,13 +34,11 @@ export class Chart1Component implements OnInit {
           var selection = d3.select('select').property('value');
           data1 = data.filter(x => x['Region'] == selection);
           data1['columns'] = data.columns.slice(1);
-
           updateGraph(data1);
         });
 
       d3.select('#auto')
         .on("click", function () {
-
           var selection = d3.select('#countries').node();
             
           (function myLoop (i) {          
@@ -191,12 +64,13 @@ export class Chart1Component implements OnInit {
       var data1 = data.filter(x => x['Region'] == selection);
       data1['columns'] = data.columns.slice(1);
       var svg = d3.select("#chart1"),
-        margin = { top: 10, right: 100, bottom: 60, left: 100 },
+        margin = { top: 10, right: 150, bottom: 60, left: 100 },
         width = <any>svg.attr("width") - margin.left - margin.right,
         height = <any>svg.attr("height") - margin.top - margin.bottom;
 
       var x = d3.scaleTime().range([0, width]),
         y = d3.scaleLinear().range([height, 0]),
+        _y = d3.scaleLinear().range([height, 0]),
         z = d3.scaleOrdinal(d3.schemeCategory10);
       var stack = d3.stack();
       var area = d3.area()
@@ -246,6 +120,10 @@ export class Chart1Component implements OnInit {
         .attr("class", "axis axis--x")
         .attr("transform", "translate(0," + height + ")");
 
+      var yDep = g.append("g")
+        .attr("class", "axis axis--dep")
+        .attr("transform", "translate(" + width + ",0" + ")");
+
       var xLab = svg.append('text')
 
       xLab.attr("x", 535)
@@ -264,6 +142,17 @@ export class Chart1Component implements OnInit {
         .style("font", "11px sans-serif")
         .style("text-anchor", "end")
         .text("Population (in Million / 10)");
+      
+      var depLab = svg.append('text').attr("class", "depLab")
+
+      depLab.attr("x", 320)
+        .attr("y", -890)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(90)")
+        .style("font", "11px sans-serif")
+        .style("text-anchor", "end")
+        .text("Dependency Ratio");
+
       var is_pct = false;
       updateGraph(data1);
 
@@ -330,6 +219,7 @@ export class Chart1Component implements OnInit {
         var xyz = d3.extent(data, function (d) { return d['Year'] })
         x.domain(<any>xyz);
         z.domain(keys);
+        _y.domain([0.0, 4.0]);
 
         stack.keys(keys);
 
@@ -367,14 +257,49 @@ export class Chart1Component implements OnInit {
 
         yAxis.call(d3.axisBottom(x));
         xAxis.transition().duration(800).call(<any>d3.axisLeft(y).ticks(10));
+        yDep.call(d3.axisRight(_y));
 
 
         layer_selection.exit().remove();
         // svg.exit().remove();
         // yAxis.exit().remove();
         // xAxis.exit().remove();
+        
+        var rects = g.selectAll("rect").data(data, function (d) { return d['Year']; });
+        rects.enter() //ENTER
+        .append('rect')
+        .attr('x', function (d) { return x(d['Year']); })
+        .attr('y', function (d) { return _y(d['Middle']/(d['Young']+d['Old'])); })
+        .attr('width', 2)
+        .attr('height', function (d) { return height - _y(d['Middle']/(d['Young']+d['Old'])); })
+        .style('fill', 'black');
 
+        rects.transition()
+        .duration(800)
+        .attr('x', function (d) { return x(d['Year']); })
+        .attr('y', function (d) { return _y(d['Middle']/(d['Young']+d['Old'])); })
+        .attr('width', 2)
+        .attr('height', function (d) { return height - _y(d['Middle']/(d['Young']+d['Old'])); })
+        .style('fill', 'black');
 
+        //rects.exit().remove();
+
+        var circle = g.selectAll('circle').data(data, function (d) { return d['Year']; });
+        circle.enter()
+              .append('circle')
+              .attr('r', 4)
+              .attr('cx', function (d) { return x(d['Year']); })
+              .attr('cy', function (d) { return _y(d['Middle']/(d['Young']+d['Old'])); })
+              .style('fill', 'red');
+        
+        circle.transition()
+              .duration(800)
+              .attr('r', 4)
+              .attr('cx', function (d) { return x(d['Year']); })
+              .attr('cy', function (d) { return _y(d['Middle']/(d['Young']+d['Old'])); })
+              .style('fill', 'red');
+
+        circle.exit().remove();
       }
 
 
