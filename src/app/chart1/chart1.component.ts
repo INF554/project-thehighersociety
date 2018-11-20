@@ -182,7 +182,7 @@ export class Chart1Component implements OnInit {
       var legendText = svg.append('text')
 
       legendText.attr("x", <any>svg.attr("width"))
-        .attr("y", 230)
+        .attr("y", height - 350)
         .attr("dy", ".35em")
         .style("font", "14px sans-serif")
         .style("text-anchor", "end")
