@@ -25,41 +25,42 @@ export class Chart1Component implements OnInit {
     }
 
     d3.json("assets/processed_dep_ratio.json").then(<any>function (data) {
-      data.forEach(function (d) {
+      data.forEach(function(d) {
         d['Year'] = d3.timeParse("%Y")(d['Year']);
       });
-      data.forEach(function (d) {
+      data.forEach(function(d) {
         d.Ratio = +d.Ratio;
         d.active = true;
       });
 
-
+      
       var svg = d3.select("#chart2"),
-        margin = { top: 50, right: 20, bottom: 30, left: 160 },
-        width = <any>svg.attr("width") - margin.left - margin.right,
-        height = <any>svg.attr("height") - margin.top - margin.bottom;
-
+            margin = {top: 50, right: 20, bottom: 30, left: 160},
+            width = <any>svg.attr("width") - margin.left - margin.right,
+            height = <any>svg.attr("height") - margin.top - margin.bottom;
+      
       var x = d3.scaleTime().range([0, width]);
       var y = d3.scaleLinear().range([height, 0]);
       var color = d3.scaleOrdinal(d3.schemeCategory10);
 
       // Define the line
       var stateline = d3.line()
-        // .interpolate("cardinal")
-        .x(function (d) { return x(d['Year']); })
-        .y(function (d) { return y(d['Ratio']); });
+                            // .interpolate("cardinal")
+                            .x(function(d) { return x(d['Year']); })
+                            .y(function(d) { return y(d['Ratio']); });
 
       var g = svg.append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       var yAxis = g.append("g")
-        .attr("class", "axisY")
+                    .attr("class", "axisY")
 
       var xAxis = g.append("g")
-        .attr("class", "axisX")
-        .attr("transform", "translate(0," + height + ")");
-
+                    .attr("class", "axisX")
+                    .attr("transform", "translate(0," + height + ")");
+      
       updateGraph1(data);
+<<<<<<< HEAD
 
 
       function updateGraph1(data) {
@@ -67,13 +68,24 @@ export class Chart1Component implements OnInit {
         
         var min = d3.min(data, function (d) { return d['Ratio']; });
         var max = d3.max(data, function (d) { return d['Ratio']; })
+=======
+      
+      
+      function updateGraph1(data){
+        
+        var xyz = d3.extent(data, function (d) { return d['Year'] })
+        var min = d3.min(data, function(d) { return d['Ratio']; });
+        var max = d3.max(data, function(d) { return d['Ratio']; })
+>>>>>>> c16e2f052b7aef36a55d4558b08eb34f41da8e09
 
         x.domain(<any>d3.extent(data, function (d) { return d['Year'] }));
         y.domain([1.0, 3.0]);
         xAxis.call(d3.axisBottom(x));
         yAxis.call(<any>d3.axisLeft(y).ticks(10));
 
+       // -----------
         var dataNest = d3.nest()
+<<<<<<< HEAD
           .key(function (d) { return d['Country']; })
           .entries(data);
           console.log(dataNest);
@@ -103,6 +115,38 @@ export class Chart1Component implements OnInit {
 
         // state.exit().remove();
 
+=======
+                          .key(function(d) {return d['Region'];})
+                          .entries(data);
+
+
+ 		var result = dataNest.filter(function(val,idx, arr){
+          return this("." + val.key).attr("fill") != "#ccc" 
+          return true;
+				  // matching the data with selector status
+				})
+				
+				
+ 		var state = g.selectAll(".line")
+      .data(result, function(d){return d['key']});
+
+		state.enter().append("path")
+			.attr("class", "line");
+
+		state.transition()
+			.style("stroke", function(d,i) {console.log(d); return d['color'] = color(d.key); })
+			.attr("id", function(d){ return 'tag'+d.key.replace(/\s+/g, '');}) // assign ID
+			.attr("d", function(d){
+		
+				return stateline(d.values)
+			});
+
+		state.exit().remove();
+                      
+        //----------
+        
+  
+>>>>>>> c16e2f052b7aef36a55d4558b08eb34f41da8e09
       }
     });
 
