@@ -146,7 +146,7 @@ export class Chart1Component implements OnInit {
       var data1 = data.filter(x => x['Region'] == selection);
       data1['columns'] = data.columns.slice(1);
       var svg = d3.select("#chart1"),
-        margin = { top: 10, right: 150, bottom: 60, left: 100 },
+        margin = { top: 10, right: 100, bottom: 60, left: 100 },
         width = <any>svg.attr("width") - margin.left - margin.right,
         height = <any>svg.attr("height") - margin.top - margin.bottom;
 
@@ -166,14 +166,14 @@ export class Chart1Component implements OnInit {
         .attr('class', 'legend');
 
       legend.append('rect')
-        .attr('x', 1010)
+        .attr('x', <any>svg.attr("width")-70)
         .attr('y', function (d, i) { return height - (330 - i * 30); })
         .attr('width', 10)
         .attr('height', 10)
         .style('fill', function (d, i) { return z(i.toString()); });
 
       legend.append('text')
-        .attr('x', 1030)
+        .attr('x', <any>svg.attr("width")-50)
         .attr('y', function (d, i) { return height - (326 - i * 30); })
         .attr("dy", ".35em")
         .style("font", "12px sans-serif")
@@ -181,7 +181,7 @@ export class Chart1Component implements OnInit {
 
       var legendText = svg.append('text')
 
-      legendText.attr("x", 1090)
+      legendText.attr("x", <any>svg.attr("width"))
         .attr("y", 230)
         .attr("dy", ".35em")
         .style("font", "14px sans-serif")
