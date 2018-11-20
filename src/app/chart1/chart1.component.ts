@@ -64,11 +64,11 @@ export class Chart1Component implements OnInit {
 
       function updateGraph1(data) {
 
-        var xyz = d3.extent(data, function (d) { return d['Year'] })
+        
         var min = d3.min(data, function (d) { return d['Ratio']; });
         var max = d3.max(data, function (d) { return d['Ratio']; })
 
-        x.domain(<any>xyz);
+        x.domain(<any>d3.extent(data, function (d) { return d['Year'] }));
         y.domain([1.0, 3.0]);
         xAxis.call(d3.axisBottom(x));
         yAxis.call(<any>d3.axisLeft(y).ticks(10));
@@ -76,6 +76,7 @@ export class Chart1Component implements OnInit {
         var dataNest = d3.nest()
           .key(function (d) { return d['Country']; })
           .entries(data);
+          console.log(dataNest);
 
 
         // var result = dataNest.filter(function(val,idx, arr){
