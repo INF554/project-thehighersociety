@@ -6,7 +6,7 @@
 }
 
 #title {
-    position:relative;
+    position:center;
     transition: .5s ease;
     top: -20px;
     left: 75px;
