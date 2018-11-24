@@ -81,11 +81,16 @@ export class Chart1Component implements OnInit {
         margin = { top: 10, right: 150, bottom: 60, left: 100 },
         width = <any>svg.attr("width") - margin.left - margin.right,
         height = <any>svg.attr("height") - margin.top - margin.bottom;
+     
+        var svg2 = d3.select("#chart2"),
+        margin = { top: 10, right: 150, bottom: 60, left: 100 },
+        width = <any>svg2.attr("width") - margin.left - margin.right,
+        height = <any>svg2.attr("height") - margin.top - margin.bottom;
 
       var x = d3.scaleTime().range([0, width]),
         y = d3.scaleLinear().range([height, 0]),
         _y = d3.scaleLinear().range([height, 0]),
-        z = d3.scaleOrdinal(d3.schemeCategory10);
+        z = d3.scaleOrdinal(['orange','yellow','silver']);
       var stack = d3.stack();
       var area = d3.area()
         .x(function (d, i) { return x(d['data']['Year']); })
