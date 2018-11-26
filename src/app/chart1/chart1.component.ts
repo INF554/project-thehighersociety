@@ -23,7 +23,28 @@ export class Chart1Component implements OnInit {
       for (var i = <any>2, n = columns.length; i < n; ++i) d[columns[i]] = d[columns[i]] / 100;
       return d;
     }
+    function animateGraph2(){
 
+     // var selection = d3.select('#countries').node();
+      var sel1=d3.selectAll('.c1').nodes();
+      var sel2=d3.selectAll('.c2').nodes();
+      var sel3=d3.selectAll('.c3').nodes();
+        (function myLoop (i) {          
+          setTimeout(function () {  
+            d3.selectAll('.c1').style("opacity", 0);
+            d3.selectAll('.c2').style("opacity", 0);
+            d3.selectAll('.c3').style("opacity", 0);
+            sel1[14-i]["style"].opacity=1;
+            sel2[14-i]["style"].opacity=1;
+            sel3[14-i]["style"].opacity=1;
+         
+                         
+             if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
+          }, 1500)
+       })(14);
+
+    
+    };
 
     d3.csv("assets/processed_age_distribution.csv", type).then(function (data) {
       var selection = d3.select('select').property('value');
@@ -36,22 +57,16 @@ export class Chart1Component implements OnInit {
           data1['columns'] = data.columns.slice(1);
           updateGraph(data1);
           updateGraph2(data1);
+          
         });
+       
+        d3.select("#trend").on("click",function(){
+          animateGraph2();
+        })
 
       d3.select('#auto')
         .on("click", function () {
-          //   var selection = d3.select('#countries').node();
-
-          //   (function myLoop (i) {          
-          //     setTimeout(function () {  
-          //       var element=selection[i-1] 
-          //       var val = element.value;
-          //       data1 = data.filter(x => x['Region'] == val);
-          //       data1['columns'] = data.columns.slice(1);
-          //       updateGraph(data1);              
-          //        if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
-          //     }, 1500)
-          //  })(10);
+         
           if (flagDR == 0) {
             d3.selectAll(".dr").transition().duration(800).style("opacity", 1);
             d3.selectAll(".area").transition().duration(800).style("opacity", 0.4);
@@ -91,7 +106,9 @@ export class Chart1Component implements OnInit {
       var x = d3.scaleTime().range([0, width]),
         y = d3.scaleLinear().range([height, 0]),
         _y = d3.scaleLinear().range([height, 0]),
-        z = d3.scaleOrdinal(['orange', 'yellow', 'silver']);
+        z = d3.scaleOrdinal(['orange', 'yellow', 'silver']),
+        z2 = d3.scaleOrdinal(['orange', 'yellow', 'grey']);
+
       var stack = d3.stack();
       var area = d3.area()
         .x(function (d, i) { return x(d['data']['Year']); })
@@ -189,7 +206,7 @@ export class Chart1Component implements OnInit {
         .attr('y', function (d, i) { return height - (330 - i * 30); })
         .attr('width', 10)
         .attr('height', 10)
-        .style('fill', function (d, i) { return z(i.toString()); });
+        .style('fill', function (d, i) { return z2(i.toString()); });
 
       legend2.append('text')
         .attr('x', <any>svg2.attr("width") - 50)
@@ -240,18 +257,7 @@ export class Chart1Component implements OnInit {
         .attr("transform", "rotate(-90)")
         .style("font", "11px sans-serif")
         .style("text-anchor", "end")
-        .text("Population (in Million / 10)");
-
-      var depLab2 = svg2.append('text').attr("class", "dr")
-
-      depLab2.attr("x", 320)
-        .attr("y", -890)
-        .attr("dy", ".35em")
-        .attr("transform", "rotate(90)")
-        .style("font", "11px sans-serif")
-        .style("text-anchor", "end")
-        .text("Dependency Ratio")
-        .style("opacity", 0);
+        .text("Dependency Ratio");
 
 
 
@@ -327,7 +333,7 @@ export class Chart1Component implements OnInit {
         var xyz = d3.extent(data, function (d) { return d['Year'] })
         x.domain(<any>xyz);
         z.domain(keys);
-        _y.domain([0.0, 4.0]);
+        _y.domain([<any>d3.min(data, function (d) { return (d['Young'] + d['Old'])/d['Middle']})-0.1,<any>d3.max(data, function (d) { return (d['Young'] + d['Old'])/d['Middle']})+0.1]);
 
         stack.keys(keys);
 
@@ -378,18 +384,18 @@ export class Chart1Component implements OnInit {
           .append('rect')
           .attr('class', 'dr')
           .attr('x', function (d) { return x(d['Year']); })
-          .attr('y', function (d) { return _y(d['Middle'] / (d['Young'] + d['Old'])); })
+          .attr('y', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
           .attr('width', 2)
-          .attr('height', function (d) { return height - _y(d['Middle'] / (d['Young'] + d['Old'])); })
+          .attr('height', function (d) { return height - _y( (d['Young'] + d['Old'])/d['Middle']); })
           .style('fill', 'black')
           .style("opacity", 0);
 
         rects.transition()
           .duration(800)
           .attr('x', function (d) { return x(d['Year']); })
-          .attr('y', function (d) { return _y(d['Middle'] / (d['Young'] + d['Old'])); })
+          .attr('y', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
           .attr('width', 2)
-          .attr('height', function (d) { return height - _y(d['Middle'] / (d['Young'] + d['Old'])); })
+          .attr('height', function (d) { return height - _y( (d['Young'] + d['Old'])/d['Middle']); })
           .style('fill', 'black')
 
         //rects.exit().remove();
@@ -401,28 +407,28 @@ export class Chart1Component implements OnInit {
           .attr('class', 'dr')
           .attr('r', 4)
           .attr('cx', function (d) { return x(d['Year']); })
-          .attr('cy', function (d) { return _y(d['Middle'] / (d['Young'] + d['Old'])); })
-          .style('fill', 'red')
+          .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .style('fill', 'tomato')
           .style("opacity", 0)
-          .on("mouseover", function (d) {
+         .on("mouseover", function (d) {
             d3.select(this)
               .style("opacity", 0.5)
               .style("cursor", "pointer");
             g.append('line')
               .attr("id", "limit")
               .attr('x1', x(d['Year']))
-              .attr('y1', _y(d['Middle'] / (d['Young'] + d['Old'])))
+              .attr('y1', _y( (d['Young'] + d['Old'])/d['Middle']))
               .attr('x2', width)
-              .attr('y2', _y(d['Middle'] / (d['Young'] + d['Old'])))
-              .attr('stroke', 'red')
+              .attr('y2', _y( (d['Young'] + d['Old'])/d['Middle']))
+              .attr('stroke', 'tomato')
               .style("stroke-width", "3")
               .style("stroke-dasharray", "3 6")
-            var num = Math.round(d['Middle'] / (d['Young'] + d['Old']) * 10) / 10
+            var num = Math.round( (d['Young'] + d['Old'])/d['Middle'] * 10) / 10
             g.append('text')
               .attr('id', 'texty')
               .attr('x', x(d['Year']))
-              .attr('y', _y(d['Middle'] / (d['Young'] + d['Old'])) - 20)
-              .attr('fill', 'red')
+              .attr('y', _y( (d['Young'] + d['Old'])/d['Middle']))
+              .attr('fill', 'tomato')
               .attr('text-anchor', 'middle')
               .text(num.toString())
           })
@@ -438,8 +444,8 @@ export class Chart1Component implements OnInit {
           .duration(800)
           .attr('r', 4)
           .attr('cx', function (d) { return x(d['Year']); })
-          .attr('cy', function (d) { return _y(d['Middle'] / (d['Young'] + d['Old'])); })
-          .style('fill', 'red')
+          .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .style('fill', 'tomato')
         // .on("mouseover", function(d){
         //   d3.select(this)
         //     .style("cursor", "pointer");
@@ -459,21 +465,14 @@ export class Chart1Component implements OnInit {
         data.map(x => !x.Region);
        
           var title2 = "Dependency ratio in " + country;
-          var ylab2 = "Percentage";
+        
           var X = -270;
           var Y = 50
      
        
 
-        yLab.transition().duration(800).attr("x", X)
-          .attr("y", Y)
-          .attr("dy", ".35em")
-          .attr("transform", "rotate(-90)")
-          .style("font", "11px sans-serif")
-          .style("text-anchor", "end")
-          .text(ylab2);
 
-        var keys = data.columns.slice(1);
+       
 
         
           data = data.map(function (d, i) {
@@ -485,15 +484,13 @@ export class Chart1Component implements OnInit {
           });
           y.domain([0, 100]);
       
-
-        //  y.domain([0, <any>d3.max(data, function (d) { return d['Young'] + d['Middle'] + d['Old'] + 300; })]);
-
             
         var xyz = d3.extent(data, function (d) { return d['Year'] })
         var x = d3.scaleTime().range([0, width]);
         //console.log(xyz)
         x.domain(<any>xyz);
-        _y.domain([0.0, 4.0]);
+        _y.domain([<any>d3.min(data, function (d) { return (d['Young'] + d['Old'])/d['Middle']})-0.1,<any>d3.max(data, function (d) { return (d['Young'] + d['Old'])/d['Middle']})+0.1]);
+
         
 
         yAxis2.call(d3.axisBottom(x));
@@ -501,34 +498,65 @@ export class Chart1Component implements OnInit {
 
         
 
+        var circle1 = g2.selectAll('.c1').data(data, function (d) { return d['Year']; });
+        var circle2 = g2.selectAll('.c2').data(data, function (d) { return d['Year']; });
+        var circle3 = g2.selectAll('.c3').data(data, function (d) { return d['Year']; });
 
-        var circle = g2.selectAll('circle').data(data, function (d) { return d['Year']; });
-        circle.enter()   .append('circle')
-        .attr('class', 'dr')
+        circle1.enter()
+        .append('circle')
+        .attr('class', 'c1')
         .attr('r', 20)
+        .style("opacity", 0)
         .attr('cx', function (d) { return x(d['Year']); })
-        .attr('cy', function (d) { return _y(d['Middle'] / (d['Young'] + d['Old'])); })
+        .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
         .style('fill', 'grey')
-        circle.enter()    .append('circle')
-        .attr('class', 'dr')
+
+        circle2.enter()
+        .append('circle')
+        .attr('class', 'c2')
+        .style("opacity", 0)
         .attr('r', 15)
         .attr('cx', function (d) { return x(d['Year']); })
-        .attr('cy', function (d) { return _y(d['Middle'] / (d['Young'] + d['Old'])); })
+        .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
         .style('fill', 'yellow')
         
-        circle.enter()
+        circle3.enter()
           .append('circle')
-          .attr('class', 'dr')
+          .attr('class', 'c3')
+          .style("opacity", 0)
           .attr('r', 8)
           .attr('cx', function (d) { return x(d['Year']); })
-          .attr('cy', function (d) { return _y(d['Middle'] / (d['Young'] + d['Old'])); })
-          .style('fill', 'orange')
+          .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .style('fill','orange');
          
-          circle.transition()
-          .duration(800)
-          
-          d3.select("#title2").style("font-weight", "bold").text(title2)
+       
 
+     
+
+          circle1.transition()
+          
+          .attr('r', function(d){ var sum = d['Young'] + d['Old']+d['Middle'];    return  30*(d['Young']+d['Middle']+d['Old'])/sum;})
+          .attr('cx', function (d) { return x(d['Year']); })
+          .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .style('fill','grey')
+          circle2.transition()
+          
+          .attr('r', function(d){ var sum = d['Young'] + d['Old']+d['Middle'];    return  30*(d['Young']+d['Middle'])/sum;})
+          .attr('cx', function (d) { return x(d['Year']); })
+          .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .style('fill','yellow')
+          circle3.transition()
+         
+          .attr('r', function(d){ var sum = d['Young'] + d['Old']+d['Middle'];    return  30*d['Young']/sum;})
+          .attr('cx', function (d) { return x(d['Year']); })
+          .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .style('fill','orange')
+          
+        d3.select("#title2").style("font-weight", "bold").text(title2)
+
+        circle1.exit().remove();
+        circle2.exit().remove();
+        circle3.exit().remove();
 
       }
 
