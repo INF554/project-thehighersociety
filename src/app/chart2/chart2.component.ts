@@ -20,8 +20,8 @@ export class Chart2Component implements OnInit {
 
 
         var svg = d3.select("#chart2"),
-            width = +svg.attr("width")-20,
-            height = +svg.attr("height")-20,
+            width = +svg.attr("width") - 20,
+            height = +svg.attr("height") - 20,
             innerRadius = 140,
             outerRadius = Math.min(width, height) / 2,
             g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -36,6 +36,18 @@ export class Chart2Component implements OnInit {
 
         var z = d3.scaleOrdinal()
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"].reverse());
+
+        var x0 = d3.scaleBand()
+            .rangeRound([0, width])
+            .paddingInner(0.1);
+
+        var x1 = d3.scaleBand()
+            .padding(0.05);
+
+        var ylinear = d3.scaleLinear()
+            .rangeRound([height, 0]);
+        var margin = { top: 20, right: 20, bottom: 30, left: 40 };
+
 
 
 
@@ -61,9 +73,101 @@ export class Chart2Component implements OnInit {
                     Updatechart2(dk);
                 });
 
-           
+            d3.select('#bar').on("click", function () {
+                svg.remove();
+                d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "960").attr("width", "960")
+                svg = d3.select("#chart2");
+                width = +svg.attr("width") - 20;
+                height = +svg.attr("height") - 20;
+
+                x0 = d3.scaleBand()
+                    .rangeRound([0, width])
+                    .paddingInner(0.1);
+
+                x1 = d3.scaleBand()
+                    .padding(0.05);
+
+                ylinear = d3.scaleLinear()
+                    .rangeRound([height, 0]);
+                var margin = { top: 20, right: 20, bottom: 30, left: 40 };
+
+
+                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+
+                Updatechartgroup(dk);
+
+
+            })
+
+
 
             Updatechart2(dk);
+
+            function Updatechartgroup(data) {
+
+                var keys = data.columns.slice(1);
+                data.map(x => !x.Region);
+                x0.domain(data.map(function (d) { return d['Year']; }));
+                x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+                ylinear.domain([0, <any>d3.max(data, function (d) { return d3.max(keys, function (key) { return d[<any>key]; }); })]).nice();
+
+                g.append("g")
+                    .selectAll("g")
+                    .data(data)
+                    .enter().append("g")
+                    .attr("transform", function (d) { return "translate(" + x0(d['Year']) + ",0)"; })
+                    .selectAll("rect")
+                    .data(function (d) { return keys.map(function (key) { return { key: key, value: d[key] }; }); })
+                    .enter().append("rect")
+                    .attr("x", function (d) { return x1(d['key']); })
+                    .attr("y", function (d) { return ylinear(d['value']); })
+                    .attr("width", x1.bandwidth())
+                    .attr("height", function (d) { return height - ylinear(d['value']); })
+                    .attr("fill", <any>function (d) { return z(d['key']); });
+
+                g.append("g")
+                    .attr("class", "axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x0));
+
+                g.append("g")
+                    .attr("class", "axis")
+                    .call(d3.axisLeft(ylinear).ticks(null, "s"))
+                    .append("text")
+                    .attr("x", 2)
+                    .attr("y", ylinear(ylinear.ticks().pop()) + 0.5)
+                    .attr("dy", "0.32em")
+                    .attr("fill", "#000")
+                    .attr("font-weight", "bold")
+                    .attr("text-anchor", "start")
+                    .text("Population");
+
+                var legend = g.append("g")
+                    .attr("font-family", "sans-serif")
+                    .attr("font-size", 10)
+                    .attr("text-anchor", "end")
+                    .selectAll("g")
+                    .data(keys.slice().reverse())
+                    .enter().append("g")
+                    .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+                legend.append("rect")
+                    .attr("x", width - 19)
+                    .attr("width", 19)
+                    .attr("height", 19)
+                    .attr("fill", <any>z);
+
+                legend.append("text")
+                    .attr("x", width - 24)
+                    .attr("y", 9.5)
+                    .attr("dy", "0.32em")
+                    .text(<any>function (d) { return d; });
+
+
+            }
 
 
 
