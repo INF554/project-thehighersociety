@@ -31,9 +31,21 @@ export class Chart1Component implements OnInit {
       var sel3=d3.selectAll('.c3').nodes();
         (function myLoop (i) {          
           setTimeout(function () {  
-            d3.selectAll('.c1').style("opacity", 0);
-            d3.selectAll('.c2').style("opacity", 0);
-            d3.selectAll('.c3').style("opacity", 0);
+            if (i<14){
+              sel1[13-i]["style"].opacity=0.5;
+              sel2[13-i]["style"].opacity=0.5;
+              sel3[13-i]["style"].opacity=0.5;
+           
+            }
+            if (i==14){
+              d3.selectAll('.c1').style("opacity", 0);
+             d3.selectAll('.c2').style("opacity", 0);
+             d3.selectAll('.c3').style("opacity", 0);
+           
+            }
+            // d3.selectAll('.c1').style("opacity", 0);
+            // d3.selectAll('.c2').style("opacity", 0);
+            // d3.selectAll('.c3').style("opacity", 0);
             sel1[14-i]["style"].opacity=1;
             sel2[14-i]["style"].opacity=1;
             sel3[14-i]["style"].opacity=1;
