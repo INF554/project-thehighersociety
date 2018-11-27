@@ -20,8 +20,8 @@ export class Chart2Component implements OnInit {
 
 
         var svg = d3.select("#chart2"),
-            width = +svg.attr("width") - 20,
-            height = +svg.attr("height") - 20,
+            width = +svg.attr("width") - 40,
+            height = +svg.attr("height") - 40,
             innerRadius = 140,
             outerRadius = Math.min(width, height) / 2,
             g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -31,14 +31,14 @@ export class Chart2Component implements OnInit {
             .align(0);
 
 
-        var y = d3.scaleLinear().range([innerRadius, outerRadius]);
+        var y = kk.scaleRadial().range([innerRadius, outerRadius]);
 
 
         var z = d3.scaleOrdinal()
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"].reverse());
 
         var x0 = d3.scaleBand()
-            .rangeRound([0, width])
+            .rangeRound([0, width-20])
             .paddingInner(0.1);
 
         var x1 = d3.scaleBand()
@@ -46,14 +46,14 @@ export class Chart2Component implements OnInit {
 
         var ylinear = d3.scaleLinear()
             .rangeRound([height, 0]);
-        var margin = { top: 20, right: 20, bottom: 30, left: 40 };
+        //var margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-
+        var is_bar =false;
 
 
         d3.csv("assets/processed_economic_activity.csv", <any>function (d, i, columns) {
 
-
+             
             for (var i = <any>2, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
             d['total'] = t;
 
@@ -61,36 +61,44 @@ export class Chart2Component implements OnInit {
             return d;
         }).then(<any>function (newdata) {
             var dk = newdata;
-            var selection = d3.select('select').property('value');
+            var selection = d3.select('#Ecountries').property('value');
 
             dk = newdata.filter(x => x['Region'] == selection);
             dk['columns'] = newdata.columns.slice(1);
             d3.select('#Ecountries')
                 .on("change", function () {
-                    var selection = d3.select('select').property('value');
+                    var selection = d3.select('#Ecountries').property('value');
                     dk = newdata.filter(x => x['Region'] == selection);
                     dk['columns'] = newdata.columns.slice(1);
-                    Updatechart2(dk);
+                    if(is_bar)
+                    {
+                        Updatechartgroup(dk);
+                    }
+                    else{
+                        Updatechart2(dk);
+                    }
+                   
                 });
 
             d3.select('#bar').on("click", function () {
+                is_bar=true;
                 svg.remove();
-                d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "960").attr("width", "960")
+                d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "1000")
                 svg = d3.select("#chart2");
-                width = +svg.attr("width") - 20;
-                height = +svg.attr("height") - 20;
+                width = +svg.attr("width") - 30;
+                height = +svg.attr("height") - 30;
 
                 x0 = d3.scaleBand()
-                    .rangeRound([0, width])
+                    .rangeRound([0, width-20])
                     .paddingInner(0.1);
 
                 x1 = d3.scaleBand()
                     .padding(0.05);
 
+               
+                var margin = { top: 10, right: 10, bottom: 10, left: 30 };
                 ylinear = d3.scaleLinear()
-                    .rangeRound([height, 0]);
-                var margin = { top: 20, right: 20, bottom: 30, left: 40 };
-
+                .rangeRound([height, 0]);
 
                 g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -102,7 +110,22 @@ export class Chart2Component implements OnInit {
 
             })
 
+            d3.select('#radial').on("click", function () {
+                is_bar=false
+                
+                svg.remove();
+                d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "600").attr("width", "600")
+                svg = d3.select("#chart2");
 
+                width = +svg.attr("width") - 40,
+            height = +svg.attr("height") - 40,
+            innerRadius = 140,
+            outerRadius = Math.min(width, height) / 2,
+            g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+            Updatechart2(dk);
+
+            });
 
             Updatechart2(dk);
 
@@ -118,7 +141,7 @@ export class Chart2Component implements OnInit {
                     .selectAll("g")
                     .data(data)
                     .enter().append("g")
-                    .attr("transform", function (d) { return "translate(" + x0(d['Year']) + ",0)"; })
+                    .attr("transform", function (d) { return "translate(" + x0(d['Year']) + ", 0)"; })
                     .selectAll("rect")
                     .data(function (d) { return keys.map(function (key) { return { key: key, value: d[key] }; }); })
                     .enter().append("rect")
@@ -245,7 +268,7 @@ export class Chart2Component implements OnInit {
                     .selectAll("g")
                     .data(data.columns.slice(1).reverse())
                     .enter().append("g")
-                    .attr("transform", function (d, i) { return "translate(-40," + (i - (data.columns.length - 1) / 2) * 20 + ")"; });
+                    .attr("transform", function (d, i) { return "translate(-70," + (i - (data.columns.length - 1) / 2) * 20 + ")"; });
 
                 legend.append("rect")
                     .attr("width", 18)
