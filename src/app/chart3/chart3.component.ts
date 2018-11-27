@@ -13,6 +13,8 @@ export class Chart3Component implements OnInit {
 
   ngOnInit() {
 
+	var contryList = ["Nigeria","Japan","Bangladesh","India","Pakistan","Indonesia","Mexico","Brazil","United States of America"]
+
   	var margin = { top: 100, left: 50, bottom: 50, right: 10 };
 	var width = 1200 - margin.left - margin.right;
 	var height = 900 - margin.top - margin.bottom;
@@ -54,7 +56,7 @@ export class Chart3Component implements OnInit {
 			var colorScale:any = d3.scaleLinear()
 									.domain([0,1000000000000000])
 									// @ts-ignore
-									.range(["white","black"])
+									.range(["green","yellow","red"])
 									// .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')])
       							// .interpolate(d3.)
       							// .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
