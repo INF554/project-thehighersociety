@@ -62,10 +62,10 @@ export class Chart2Component implements OnInit {
                 if (typeof popd != 'undefined') {
                 d.Industry = parseFloat(d.Industry) * popd.Middle;
                     d.Services = parseFloat(d.Services) * popd.Middle;
-                    d.Ahff = parseFloat(d.Ahff) * popd.Middle;
+                    d.AHFF = parseFloat(d.AHFF) * popd.Middle;
                 }
 
-                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.Ahff) + 5;
+                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.AHFF) + 5;
                 d.Year = (d.Year).toString();
                 return d;
 
@@ -149,7 +149,7 @@ return dat1;
             data1.map(function (d) {
 
 
-                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.Ahff) ;
+                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.AHFF) ;
                 d.Year = (d.Year).toString();
 
 
