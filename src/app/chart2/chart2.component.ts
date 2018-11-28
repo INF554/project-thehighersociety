@@ -49,6 +49,20 @@ export class Chart2Component implements OnInit {
 
         var is_bar = false;
         var is_pct2 = true;
+        var div = d3.select("#tooltip")
+                    .attr("class", "tooltip")				
+                    .style("opacity", 0)
+                    .style("visibility", "visible");
+        div.append('div') // add divs to the tooltip defined above                            
+           .attr('class', 'country');
+        div.append('div') // add divs to the tooltip defined above                            
+           .attr('class', 'year');
+        div.append('div') // add divs to the tooltip defined above                            
+           .attr('class', 'ahff');
+        div.append('div') // add divs to the tooltip defined above                            
+           .attr('class', 'industry');
+        div.append('div') // add divs to the tooltip defined above                            
+           .attr('class', 'services');
 
         function updatedk(dat1, dat2) {
 
@@ -82,7 +96,7 @@ export class Chart2Component implements OnInit {
                     var dat1 = JSON.parse(JSON.stringify(dat2));
                     
                     dat1=dat1.filter(x => x['Region'] == sel);
-                   console.log(dat1)
+                //    console.log(dat1)
                     dat1['columns'] = dat2.columns.slice(1);
 return dat1;
 
@@ -293,7 +307,36 @@ return dat1;
                     .attr("y", function (d) { return ylinear(d['value']); })
                     .attr("width", x1.bandwidth())
                     .attr("height", function (d) { return height - ylinear(d['value']); })
-                    .attr("fill", <any>function (d) { return z(d['key']); });
+                    .attr("fill", <any>function (d) { return z(d['key']); })
+                    .on("mouseover", function(d){
+                        console.log(d['data']);
+                        d3.select(this)
+                          .style("cursor", " pointer");
+                        div.transition()		
+                          .duration(200)		
+                          .style("opacity", 0.8)
+                          .style("border", "3px solid grey");
+                        
+                        if (is_pct2)
+                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
+                        div.select('.year').html("Year: " + <any>d['data']['Year']);
+                        div.select('.ahff').html("AHFF: " + <any>d['data']['AHFF']);
+                        div.select('.services').html("Services: " + <any>d['data']['Services']);
+                        div.select('.industry').html("Industry: " + <any>d['data']['Industry']);}
+                        else
+                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
+                        div.select('.year').html("Year: " + <any>d['data']['Year']);
+                        div.select('.ahff').html("AHFF: " + Math.round( (d['data']['AHFF']/1000000) * 100) / 100 + "M");
+                        div.select('.services').html("Services: " + Math.round( (d['data']['Services']/1000000) * 100) / 100 + "M");
+                        div.select('.industry').html("Industry: " + Math.round( (d['data']['Industry']/1000000) * 100) / 100 + "M");}
+                    })
+                    .on("mouseout", function (d) {
+                        d3.select(this)
+                          .style("cursor", "none");
+                        div.transition()		
+                          .duration(100)		
+                          .style("opacity", 0);
+                    });
 
                 g.append("g")
                     .attr("class", "axis")
@@ -366,12 +409,33 @@ return dat1;
                         .padAngle(0.01)
                         .padRadius(innerRadius))
                     .on("mouseover", function(d){
+                        // console.log(d['data']);
                         d3.select(this)
                           .style("cursor", "pointer");
+                        div.transition()		
+                          .duration(200)		
+                          .style("opacity", 0.8)
+                          .style("border", "3px solid grey");
+                        
+                        if (is_pct2)
+                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
+                        div.select('.year').html("Year: " + <any>d['data']['Year']);
+                        div.select('.ahff').html("AHFF: " + <any>d['data']['AHFF']);
+                        div.select('.services').html("Services: " + <any>d['data']['Services']);
+                        div.select('.industry').html("Industry: " + <any>d['data']['Industry']);}
+                        else
+                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
+                        div.select('.year').html("Year: " + <any>d['data']['Year']);
+                        div.select('.ahff').html("AHFF: " + Math.round( (d['data']['AHFF']/1000000) * 100) / 100 + "M");
+                        div.select('.services').html("Services: " + Math.round( (d['data']['Services']/1000000) * 100) / 100 + "M");
+                        div.select('.industry').html("Industry: " + Math.round( (d['data']['Industry']/1000000) * 100) / 100 + "M");}
                     })
                     .on("mouseout", function (d) {
                         d3.select(this)
                           .style("cursor", "none");
+                        div.transition()		
+                          .duration(100)		
+                          .style("opacity", 0);
                     })
 
                 var label = g.append("g")

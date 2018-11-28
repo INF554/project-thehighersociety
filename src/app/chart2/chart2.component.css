@@ -7,3 +7,16 @@
     height: 100px;
     display: inline-block;
 }
+
+#tooltip {
+    position: fixed;
+    text-align: center;
+    text-decoration-color: black;
+    font: 14px arial;		
+    background: rgb(255, 244, 143);
+    bottom: 600px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    visibility: hidden;
+}
