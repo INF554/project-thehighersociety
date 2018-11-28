@@ -69,6 +69,9 @@ export class Chart1Component implements OnInit {
           data1['columns'] = data.columns.slice(1);
           updateGraph(data1);
           updateGraph2(data1);
+             d3.selectAll('.c1').style("opacity", 0);
+             d3.selectAll('.c2').style("opacity", 0);
+             d3.selectAll('.c3').style("opacity", 0);
           
         });
        
