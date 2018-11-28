@@ -20,7 +20,7 @@ export class Chart2Component implements OnInit {
 
         var svg = d3.select("#chart2"),
             width = +svg.attr("width") - 40,
-            height = +svg.attr("height"),
+            height = +svg.attr("height")+10,
             innerRadius = 140,
             outerRadius = Math.min(width, height) / 2,
             g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -118,7 +118,7 @@ return dat1;
 
 
             width = +svg.attr("width") - 40,
-                height = +svg.attr("height"),
+                height = +svg.attr("height")+10,
                 innerRadius = 140,
                 outerRadius = Math.min(width, height) / 2,
                 g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -178,9 +178,9 @@ return dat1;
                     {
                         dk = JSON.parse(JSON.stringify(newdata.filter(x => x['Region'] == selection)));
                         dk['columns'] = JSON.parse(JSON.stringify(newdata.columns.slice(1)));
-        
+                        
                     }
-                       
+                    
                     else{
                         dk= revertdk(bothdata[0]); 
                    
@@ -278,9 +278,9 @@ return dat1;
                 data.map(x => !x.Region);
                 x0.domain(data.map(function (d) { return d['Year']; }));
                 x1.domain(keys).rangeRound([0, x0.bandwidth()]);
-                ylinear.domain([0,<any>d3.max(data, function(d) { return d3.max(keys, function(key) { return d[<any>key]; }); })]).nice();
-                console.log(data);
-                //<any>d3.max(data, function (d) { return d3.max(keys, function (key) { return d[<any>key]; }); })]
+  
+                ylinear.domain([0,parseFloat(d3.max(data, function(d) { return d3.max(keys, function(key) { return  <any>parseFloat(d[<any>key]); }); }))]).nice();
+               
                 g.append("g")
                     .selectAll("g")
                     .data(data)
