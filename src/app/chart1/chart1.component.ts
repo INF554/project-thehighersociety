@@ -426,8 +426,8 @@ export class Chart1Component implements OnInit {
           .append('circle')
           .attr('class', 'dr')
           .attr('r', 4)
-          .attr('cx', function (d) {console.log(x(d['Year'])); return x(d['Year']); })
-          .attr('cy', function (d) {console.log(_y( (d['Young'] + d['Old'])/d['Middle']));return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .attr('cx', function (d) { return x(d['Year']); })
+          .attr('cy', function (d) {return _y( (d['Young'] + d['Old'])/d['Middle']); })
           .style('fill', 'tomato')
           .style("opacity", 0)
           .on("mouseover", function (d) {
