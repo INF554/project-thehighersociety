@@ -40,7 +40,7 @@ export class Chart3Component implements OnInit {
 			var columnName = "Gross Domestic Product (GDP)"
 			function getTargetGDP() {
 				var targetGDP = {}
-				console.log(+(gdpData[1][2010].replace(/\,/g,"")))
+				// console.log(+(gdpData[1][2010].replace(/\,/g,"")))
 				for (var i = 0; i < gdpData.length; ++i) {
 					if(gdpData[i].IndicatorName!=columnName) {
 						continue
@@ -79,12 +79,12 @@ export class Chart3Component implements OnInit {
 			var allGDP = getTargetGDP()
 			// var targetGDP = allGDP
 			var targetGDP = allGDP[selectedYear]
-			console.log(allGDP)
+			// console.log(allGDP)
 
 			var maxGDP = getMaxGDP(targetGDP)
 			// 
 			
-			console.log(maxGDP)
+			// console.log(maxGDP)
 
 			// console.log(Object.keys(targetGDP))
 
@@ -139,7 +139,7 @@ export class Chart3Component implements OnInit {
 						.on("mouseover",function(){
 							var selected:any = this
 							
-							console.log(selected.__data__.properties.name)
+							//console.log(selected.__data__.properties.name)
 							d3.select("#countryText")
 								.text(selected.__data__.properties.name)
 							d3.select("#GDPText")
@@ -198,7 +198,7 @@ export class Chart3Component implements OnInit {
 			// console.log(selection)
 			// console.log(gdpData)
 			// @ts-ignore
-			console.log(d3.select(".slider")._groups[0][0].value)
+			//console.log(d3.select(".slider")._groups[0][0].value)
 			d3.select(".slider")
 				.on('click',function(){
 
@@ -209,7 +209,7 @@ export class Chart3Component implements OnInit {
 
 					// @ts-ignore
 					selectedYear = d3.select(".slider")._groups[0][0].value
-					console.log(selectedYear)
+					//console.log(selectedYear)
 
 					d3.select("#yearText")
 						.text(selectedYear)
@@ -274,7 +274,7 @@ export class Chart3Component implements OnInit {
 
 							var selected:any = this
 							
-							console.log(selected.__data__.properties.name)
+							//console.log(selected.__data__.properties.name)
 							d3.select("#countryText")
 								.text(selected.__data__.properties.name)
 							d3.select("#GDPText")

@@ -309,7 +309,11 @@ return dat1;
                     .attr("height", function (d) { return height - ylinear(d['value']); })
                     .attr("fill", <any>function (d) { return z(d['key']); })
                     .on("mouseover", function(d){
+<<<<<<< HEAD
                       //  console.log(d['data']);
+=======
+                        //console.log(d['data']);
+>>>>>>> 7e6ca03b09a370929f0b9909ac6f2025b1d13006
                         d3.select(this)
                           .style("cursor", " pointer");
                         div.transition()		
