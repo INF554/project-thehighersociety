@@ -143,7 +143,8 @@ export class Chart3Component implements OnInit {
 							d3.select("#countryText")
 								.text(selected.__data__.properties.name)
 							d3.select("#GDPText")
-								.text(allGDP[selectedYear][selected.__data__.properties.name])
+								// @ts-ignore
+								.text(parseInt((+allGDP[selectedYear][selected.__data__.properties.name])/1000000).toString())
 							d3.select(this)
 								.attr("stroke","red")
 							// d3.select(selected)
@@ -163,6 +164,34 @@ export class Chart3Component implements OnInit {
 								// .attr("fill","green")
 
 						})
+			var legendScale = d3.scaleSequential(d3.interpolateReds)
+    						.domain([0, 50])
+    		var bars = svg.selectAll(".bars")
+    						// @ts-ignore
+						    .data(d3.range(50), function(d) { return d; })
+						  	.enter().append("rect")
+						    .attr("class", "bars")
+						    .attr("x", function(d, i) { return i; })
+						    .attr("y", 300)
+						    .attr("height", 10)
+						    .attr("width", 30)
+						    .style("fill", function(d, i ) { return legendScale(d); })
+
+			svg.append("text")
+				.attr("id","legendMax")
+				.text("10284779(million $)")
+				.attr("x",50)
+				.attr("y",290)
+				.attr("style","font-size:10px")
+
+			svg.append("text")
+					.attr("id","legendMin")
+					.text("0")
+					.attr("x",0)
+					.attr("y",290)
+					.attr("style","font-size:10px")
+
+
 
 			// var selection = d3.select('select').property('value');
 			// draw heat map with selected year
@@ -187,6 +216,16 @@ export class Chart3Component implements OnInit {
 
 					targetGDP = allGDP[selectedYear]
 					maxGDP = getMaxGDP(targetGDP)
+
+					// @ts-ignore
+					var lm = parseInt(maxGDP/1000000).toString()
+
+					svg.select("#legendMax")
+						.text(lm+"(million $)")
+						.attr("x",50)
+						.attr("y",290)
+						.attr("style","font-size:10px")
+
 					colorScale = d3.scaleLinear()
 									.domain([0,maxGDP])
 									// @ts-ignore
@@ -239,7 +278,8 @@ export class Chart3Component implements OnInit {
 							d3.select("#countryText")
 								.text(selected.__data__.properties.name)
 							d3.select("#GDPText")
-								.text(allGDP[selectedYear][selected.__data__.properties.name])
+								// @ts-ignore
+								.text((parseInt((+allGDP[selectedYear][selected.__data__.properties.name])/1000000)).toString())
 							d3.select(this)
 								.attr("stroke","red")
 							// d3.select(selected)
