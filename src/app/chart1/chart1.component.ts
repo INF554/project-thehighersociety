@@ -245,7 +245,7 @@ export class Chart1Component implements OnInit {
 
 
       var xAxis2 = g2.append("g")
-        .attr("class", "yaxis")
+        .attr("class", "yaxis2")
 
 
       var yAxis2 = g2.append("g")
@@ -264,7 +264,7 @@ export class Chart1Component implements OnInit {
         .style("text-anchor", "end")
         .text("Year");
 
-      var yLab2 = svg2.append('text').attr("class", "yLab")
+      var yLab2 = svg2.append('text').attr("class", "yLab2")
 
       yLab2.attr("x", -210)
         .attr("y", 40)
@@ -413,47 +413,59 @@ export class Chart1Component implements OnInit {
           .attr('height', function (d) { return height - _y( (d['Young'] + d['Old'])/d['Middle']); })
           .style('fill', 'black')
 
-        //rects.exit().remove();
+        rects.exit().remove();
 
-        var circle = g.selectAll('circle').data(data, function (d) { return d['Year']; });
+        var div = d3.select("#tooltip")
+                    .attr("class", "tooltip")				
+                    .style("opacity", 0)
+                    .style("visibility", "visible");
+
+        var circle = g.selectAll('circle').data(data, function (d) { return d['Year']; })
 
         circle.enter()
           .append('circle')
           .attr('class', 'dr')
           .attr('r', 4)
-          .attr('cx', function (d) { return x(d['Year']); })
-          .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
+          .attr('cx', function (d) {console.log(x(d['Year'])); return x(d['Year']); })
+          .attr('cy', function (d) {console.log(_y( (d['Young'] + d['Old'])/d['Middle']));return _y( (d['Young'] + d['Old'])/d['Middle']); })
           .style('fill', 'tomato')
           .style("opacity", 0)
-         .on("mouseover", function (d) {
-            d3.select(this)
-              .style("opacity", 0.5)
-              .style("cursor", "pointer");
-            g.append('line')
-              .attr("id", "limit")
-              .attr('x1', x(d['Year']))
-              .attr('y1', _y( (d['Young'] + d['Old'])/d['Middle']))
-              .attr('x2', width)
-              .attr('y2', _y( (d['Young'] + d['Old'])/d['Middle']))
-              .attr('stroke', 'tomato')
-              .style("stroke-width", "3")
-              .style("stroke-dasharray", "3 6")
-            var num = Math.round( (d['Young'] + d['Old'])/d['Middle'] * 10) / 10
-            g.append('text')
-              .attr('id', 'texty')
-              .attr('x', x(d['Year']))
-              .attr('y', _y( (d['Young'] + d['Old'])/d['Middle']))
-              .attr('fill', 'tomato')
-              .attr('text-anchor', 'middle')
-              .text(num.toString())
-          })
-          .on("mouseleave", function (d) {
-            d3.select(this)
-              .style("opacity", 1)
-              .style("cursor", "none");
-            g.selectAll('#limit').remove()
-            g.selectAll('#texty').remove()
-          });
+          .on("mouseover", function (d) {
+            if (flagDR == 1)
+             {d3.select(this)
+               .attr("fill", "orange")
+               .attr('r', 8)
+               .style("cursor", "pointer");
+              var num = Math.round( (d['Young'] + d['Old'])/d['Middle'] * 100) / 100
+              div.transition()		
+               .duration(200)		
+               .style("opacity", .9);		
+              div.html(<any>num)	
+               .style("left", (d3.event.pageX) + "px")		
+               .style("top", (d3.event.pageY - 28) + "px");
+             g.append('line')
+               .attr("id", "limit")
+               .attr('x1', x(d['Year']))
+               .attr('y1', _y( (d['Young'] + d['Old'])/d['Middle']))
+               .attr('x2', width)
+               .attr('y2', _y( (d['Young'] + d['Old'])/d['Middle']))
+               .attr('stroke', 'tomato')
+               .style("stroke-width", "3")
+               .style("stroke-dasharray", "3 6")}
+             
+           })
+           .on("mouseout", function (d) {
+             if (flagDR == 1)
+             {d3.select(this)
+                .attr("fill", "tomato")
+                .attr('r', 4)
+               .style("cursor", "none");
+             div.transition()		
+                .duration(100)		
+                .style("opacity", 0);
+             g.selectAll('#limit').remove()}
+           });
+        
 
         circle.transition()
           .duration(800)
@@ -461,16 +473,10 @@ export class Chart1Component implements OnInit {
           .attr('cx', function (d) { return x(d['Year']); })
           .attr('cy', function (d) { return _y( (d['Young'] + d['Old'])/d['Middle']); })
           .style('fill', 'tomato')
-        // .on("mouseover", function(d){
-        //   d3.select(this)
-        //     .style("cursor", "pointer");
-        // })
-        // .on("mouseleave", function(d){
-        //   d3.select(this)
-        //     .style("cursor", "none");
-        // });
+          
 
         circle.exit().remove();
+
 
       }
 

@@ -18,10 +18,9 @@ export class Chart2Component implements OnInit {
 
     ngOnInit() {
 
-
         var svg = d3.select("#chart2"),
             width = +svg.attr("width") - 40,
-            height = +svg.attr("height") ,
+            height = +svg.attr("height")+10,
             innerRadius = 140,
             outerRadius = Math.min(width, height) / 2,
             g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -35,7 +34,7 @@ export class Chart2Component implements OnInit {
 
 
         var z = d3.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"].reverse());
+            .range(["gold","tomato","mediumseagreen"]);
 
         var x0 = d3.scaleBand()
             .rangeRound([0, width - 20])
@@ -51,7 +50,87 @@ export class Chart2Component implements OnInit {
         var is_bar = false;
         var is_pct2 = true;
 
+        function updatedk(dat1, dat2) {
 
+            var col = dat1.columns;
+            dat1.map(function (d) {
+                var popd = dat2.find(function (element) {
+                    if (d.Year === '2014' || d.Year === '2016')
+                        return element.Year === '2015' && element.Region === d.Region;
+                    return element.Year === d.Year && element.Region === d.Region;
+                });
+                if (typeof popd != 'undefined') {
+                d.Industry = parseFloat(d.Industry) * popd.Middle;
+                    d.Services = parseFloat(d.Services) * popd.Middle;
+                    d.AHFF = parseFloat(d.AHFF) * popd.Middle;
+                }
+
+                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.AHFF) + 5;
+                d.Year = (d.Year).toString();
+                return d;
+
+            });
+         
+            dat1['columns'] = col;
+            return dat1;
+        }
+
+        function revertdk(dat2){
+
+                    var sel = d3.select('#Ecountries').property('value');
+                   
+                    var dat1 = JSON.parse(JSON.stringify(dat2));
+                    
+                    dat1=dat1.filter(x => x['Region'] == sel);
+                   console.log(dat1)
+                    dat1['columns'] = dat2.columns.slice(1);
+return dat1;
+
+        }
+
+        function update_bar_vars() {
+            svg.remove();
+            var margin = { top: 10, right: 30, bottom: 40, left: 40 };
+            d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "1000")
+            svg = d3.select("#chart2");
+            width = +svg.attr("width") - margin.left -margin.right;
+            height = +svg.attr("height") - margin.top - margin.bottom;
+
+            x0 = d3.scaleBand()
+                .rangeRound([0, width - 20])
+                .paddingInner(0.1);
+
+            x1 = d3.scaleBand()
+                .padding(0.05);
+
+
+            
+            ylinear = d3.scaleLinear()
+                .rangeRound([height, 0]);
+
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        }
+        function update_radial_vars() {
+            svg.remove();
+            d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "600").attr("width", "600")
+            svg = d3.select("#chart2");
+
+
+            width = +svg.attr("width") - 40,
+                height = +svg.attr("height")+10,
+                innerRadius = 140,
+                outerRadius = Math.min(width, height) / 2,
+                g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+
+            y = kk.scaleRadial().range([innerRadius, outerRadius]);
+
+
+
+
+        }
 
 
         var files = ["assets/processed_economic_activity_small.csv", "assets/processed_age_distribution.csv"];
@@ -64,135 +143,132 @@ export class Chart2Component implements OnInit {
         Promise.all(promises).then(function (values) {
             var data1 = values[0];
             var data2 = values[1];
-      // console.log(data2)
 
-       var col=data1.columns;
+
+            var col = data1.columns;
             data1.map(function (d) {
 
-                // if(is_pct2)
-                //     var popd=data2.find(function(element) {
-                //                    if(d.Year==='2014'||d.Year==='2016')
-                //                    return element.Year==='2015' && element.Region===d.Region;
-                //                    return element.Year===d.Year && element.Region===d.Region;
-                //                    });
-                //  if (typeof popd != 'undefined')
-                //               { d.Industry=parseFloat(d.Industry)*popd.Middle;
-                //                d.Services=parseFloat(d.Services)*popd.Middle;
-                //                d.Ahff=parseFloat(d.Ahff)*popd.Middle;
-                //               }
-                              
-           
-                          
-    
-                d['total'] = parseFloat(d.Industry)+parseFloat(d.Services)+parseFloat(d.Ahff)+5;
+
+                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.AHFF) ;
                 d.Year = (d.Year).toString();
-               
-                
-          
-                
-                return d;});
-                data1['columns']=col;
-               
-            return [data1,data2];
+
+
+
+
+                return d;
+            });
+            data1['columns'] = col;
+
+            return [data1, data2];
         }).then(<any>function (bothdata) {
-            var newdata=bothdata[0]
-            var dk = newdata;
+            var newdata = bothdata[0]
+            
             var selection = d3.select('#Ecountries').property('value');
-           
-            dk = newdata.filter(x => x['Region'] == selection);
-            dk['columns'] = newdata.columns.slice(1);
-          
+
+            var dk = JSON.parse(JSON.stringify(newdata.filter(x => x['Region'] == selection)));
+            dk['columns'] = JSON.parse(JSON.stringify(newdata.columns.slice(1)));
+
             d3.select('#Ecountries')
                 .on("change", function () {
-                    var selection = d3.select('#Ecountries').property('value');
-                    
-                    dk = newdata.filter(x => x['Region'] == selection);
-                    dk['columns'] = newdata.columns.slice(1);
-                    
+                    selection = d3.select('#Ecountries').property('value');
+
                     
 
-                    if(is_pct2)
-                        //dk=updatedk(dk);
-
-
+                    if (is_pct2)
+                    {
+                        dk = JSON.parse(JSON.stringify(newdata.filter(x => x['Region'] == selection)));
+                        dk['columns'] = JSON.parse(JSON.stringify(newdata.columns.slice(1)));
+                        
+                    }
+                    
+                    else{
+                        dk= revertdk(bothdata[0]); 
+                   
+                    }
+                    
                     if (is_bar) {
+
+
+                        update_bar_vars();
                         Updatechartgroup(dk);
                     }
                     else {
+
+                        update_radial_vars();
                         Updatechart2(dk);
                     }
 
                 });
 
             d3.select('#bar').on("click", function () {
-                
-                is_bar = true;
-                svg.remove();
 
-                d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "1000")
-                svg = d3.select("#chart2");
-                width = +svg.attr("width") - 30;
-                height = +svg.attr("height") - 30;
-
-                x0 = d3.scaleBand()
-                    .rangeRound([0, width - 20])
-                    .paddingInner(0.1);
-
-                x1 = d3.scaleBand()
-                    .padding(0.05);
-
-
-                var margin = { top: 10, right: 10, bottom: 10, left: 30 };
-                ylinear = d3.scaleLinear()
-                    .rangeRound([height, 0]);
-
-                g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+                if(is_bar===false)
+                {
+                update_bar_vars();
                 Updatechartgroup(dk);
+                }
+                is_bar = true;
+                
 
 
             })
 
             d3.select('#radial').on("click", function () {
-                is_bar = false
-
-                svg.remove();
-                d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "600").attr("width", "600")
-                svg = d3.select("#chart2");
-
-                width = +svg.attr("width") - 40,
-                    height = +svg.attr("height")  ,
-                    innerRadius = 140,
-                    outerRadius = Math.min(width, height) / 2,
-                    g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 +  ")");
-
-                Updatechart2(dk);
-
-            });
-
-            d3.select('#pp2').on("click", function () {
-
-                is_pct2=false;
-
+                
                 if(is_bar)
-                Updatechartgroup(dk);
-                else
+                {
+                update_radial_vars();
                 Updatechart2(dk);
+                }
+                
+                is_bar = false;
+
+                
 
             });
 
-
-            d3.select('#pppct2').on("click", function () {
-
-                is_pct2=true;
-
-                if(is_bar)
-                Updatechartgroup(dk);
-                else
-                Updatechart2(dk);
-
+            d3.select('#absolute_val').on("click", function () {
+                
+                if(is_pct2){
+                    dk = updatedk(dk, bothdata[1]); //Multiply population. blowing up
+                    if (is_bar) {
+                        update_bar_vars();
+                        Updatechartgroup(dk);
+                    } else {
+                        update_radial_vars();
+                        Updatechart2(dk);
+                    }
+                            
+               
+               
+                }
+                
+                 is_pct2 = false;
             });
-            
+
+
+            d3.select('#pct_val').on("click", function () {
+                // console.log(dk);
+                if (is_pct2===false)
+                {   
+                    dk = revertdk(bothdata[0]); 
+                    
+
+                    if (is_bar) {
+                        update_bar_vars();
+                        Updatechartgroup(dk);
+                    } else {
+                        update_radial_vars();
+                        Updatechart2(dk);
+                    }
+                }
+                
+                is_pct2 = true;
+
+                
+              
+            });
+
 
             Updatechart2(dk);
 
@@ -202,8 +278,9 @@ export class Chart2Component implements OnInit {
                 data.map(x => !x.Region);
                 x0.domain(data.map(function (d) { return d['Year']; }));
                 x1.domain(keys).rangeRound([0, x0.bandwidth()]);
-                ylinear.domain([0, <any>d3.max(data, function (d) { return d3.max(keys, function (key) { return d[<any>key]; }); })]).nice();
-
+  
+                ylinear.domain([0,parseFloat(d3.max(data, function(d) { return d3.max(keys, function(key) { return  <any>parseFloat(d[<any>key]); }); }))]).nice();
+               
                 g.append("g")
                     .selectAll("g")
                     .data(data)
@@ -256,8 +333,8 @@ export class Chart2Component implements OnInit {
                     .attr("dy", "0.32em")
                     .text(<any>function (d) { return d; });
 
-                    legend.exit().remove();
-                    g.exit().remove();
+                legend.exit().remove();
+                g.exit().remove();
 
 
             }
@@ -265,9 +342,10 @@ export class Chart2Component implements OnInit {
 
 
             function Updatechart2(data) {
-                
+
                 data.map(x => !x.Region);
-               
+               // console.log(data);
+
                 x.domain(data.map(function (d) { return d['Year']; }));
                 y.domain([0, <any>d3.max(data, function (d) { return d['total']; })]);
                 z.domain(data.columns.slice(1));
@@ -286,8 +364,15 @@ export class Chart2Component implements OnInit {
                         .startAngle(function (d) { return x(d['data']['Year']); })
                         .endAngle(function (d) { return x(d['data']['Year']) + x.bandwidth(); })
                         .padAngle(0.01)
-                        .padRadius(innerRadius));
-
+                        .padRadius(innerRadius))
+                    .on("mouseover", function(d){
+                        d3.select(this)
+                          .style("cursor", "pointer");
+                    })
+                    .on("mouseout", function (d) {
+                        d3.select(this)
+                          .style("cursor", "none");
+                    })
 
                 var label = g.append("g")
                     .selectAll("g")
@@ -331,7 +416,7 @@ export class Chart2Component implements OnInit {
                     .text(y.tickFormat(5, "s"));
 
                 yAxis.append("text")
-                    .attr("y", function (d) { return(-y(y.ticks(5).pop()-5)); })
+                    .attr("y", function (d) { return (-y(y.ticks(5).pop() - 5)); })
                     .attr("dy", "-1em")
                     .text("Population");
 
