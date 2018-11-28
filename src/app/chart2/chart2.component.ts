@@ -364,8 +364,15 @@ return dat1;
                         .startAngle(function (d) { return x(d['data']['Year']); })
                         .endAngle(function (d) { return x(d['data']['Year']) + x.bandwidth(); })
                         .padAngle(0.01)
-                        .padRadius(innerRadius));
-
+                        .padRadius(innerRadius))
+                    .on("mouseover", function(d){
+                        d3.select(this)
+                          .style("cursor", "pointer");
+                    })
+                    .on("mouseout", function (d) {
+                        d3.select(this)
+                          .style("cursor", "none");
+                    })
 
                 var label = g.append("g")
                     .selectAll("g")

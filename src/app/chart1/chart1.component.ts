@@ -417,7 +417,8 @@ export class Chart1Component implements OnInit {
 
         var div = d3.select("#tooltip")
                     .attr("class", "tooltip")				
-                    .style("opacity", 0);
+                    .style("opacity", 0)
+                    .style("visibility", "visible");
 
         var circle = g.selectAll('circle').data(data, function (d) { return d['Year']; })
 
