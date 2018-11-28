@@ -168,10 +168,11 @@ export class Chart3Component implements OnInit {
 			// draw heat map with selected year
 			// console.log(selection)
 			// console.log(gdpData)
-
+			// @ts-ignore
 			console.log(d3.select(".slider")._groups[0][0].value)
 			d3.select(".slider")
 				.on('click',function(){
+					// @ts-ignore
 					selectedYear = d3.select(".slider")._groups[0][0].value
 					console.log(selectedYear)
 
@@ -220,16 +221,28 @@ export class Chart3Component implements OnInit {
 						})
 						.attr("stroke","black")
 						.on("mouseover",function(){
+							// var selected:any = this
+							
+							// console.log(selected.__data__.properties.name)
+							// d3.select("#countryText")
+							// 	.text(selected.__data__.properties.name)
+
 							var selected:any = this
 							
 							console.log(selected.__data__.properties.name)
 							d3.select("#countryText")
 								.text(selected.__data__.properties.name)
+							d3.select("#GDPText")
+								.text(allGDP[selectedYear][selected.__data__.properties.name])
+							d3.select(this)
+								.attr("stroke","red")
 							// d3.select(selected)
 								// .attr("fill","red")
 						})
 						.on("mouseout",function(){
-							var selected:any = this
+							// var selected:any = this
+							d3.select(this)
+								.attr("stroke","black")
 
 							// d3.select(selected)
 								// .attr("fill","None")
