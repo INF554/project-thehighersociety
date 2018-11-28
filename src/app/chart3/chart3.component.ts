@@ -172,6 +172,12 @@ export class Chart3Component implements OnInit {
 			console.log(d3.select(".slider")._groups[0][0].value)
 			d3.select(".slider")
 				.on('click',function(){
+
+					d3.select("#countryText")
+						.text("")
+					d3.select("#GDPText")
+						.text("")
+
 					// @ts-ignore
 					selectedYear = d3.select(".slider")._groups[0][0].value
 					console.log(selectedYear)
