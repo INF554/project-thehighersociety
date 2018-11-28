@@ -90,11 +90,11 @@ return dat1;
 
         function update_bar_vars() {
             svg.remove();
-
+            var margin = { top: 10, right: 30, bottom: 40, left: 40 };
             d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "1000")
             svg = d3.select("#chart2");
-            width = +svg.attr("width") - 30;
-            height = +svg.attr("height") - 30;
+            width = +svg.attr("width") - margin.left -margin.right;
+            height = +svg.attr("height") - margin.top - margin.bottom;
 
             x0 = d3.scaleBand()
                 .rangeRound([0, width - 20])
@@ -104,7 +104,7 @@ return dat1;
                 .padding(0.05);
 
 
-            var margin = { top: 10, right: 10, bottom: 10, left: 40 };
+            
             ylinear = d3.scaleLinear()
                 .rangeRound([height, 0]);
 
@@ -149,7 +149,7 @@ return dat1;
             data1.map(function (d) {
 
 
-                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.Ahff) + 5;
+                d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.Ahff) ;
                 d.Year = (d.Year).toString();
 
 
@@ -166,19 +166,26 @@ return dat1;
             var selection = d3.select('#Ecountries').property('value');
 
             var dk = JSON.parse(JSON.stringify(newdata.filter(x => x['Region'] == selection)));
-            dk['columns'] = newdata.columns.slice(1);
+            dk['columns'] = JSON.parse(JSON.stringify(newdata.columns.slice(1)));
 
             d3.select('#Ecountries')
                 .on("change", function () {
                     selection = d3.select('#Ecountries').property('value');
 
-                    dk = newdata.filter(x => x['Region'] == selection);
-                    dk['columns'] = newdata.columns.slice(1);
-
-                   
+                    
 
                     if (is_pct2)
-                        dk = updatedk(dk, bothdata[1]);
+                    {
+                        dk = JSON.parse(JSON.stringify(newdata.filter(x => x['Region'] == selection)));
+                        dk['columns'] = JSON.parse(JSON.stringify(newdata.columns.slice(1)));
+        
+                    }
+                       
+                    else{
+                        dk= revertdk(bothdata[0]); 
+                   
+                    }
+                    
                     if (is_bar) {
 
 
@@ -223,18 +230,20 @@ return dat1;
             d3.select('#absolute_val').on("click", function () {
                 
                 if(is_pct2){
-                    dk = updatedk(dk, bothdata[1]);
+                    dk = updatedk(dk, bothdata[1]); //Multiply population. blowing up
+                    if (is_bar) {
+                        update_bar_vars();
+                        Updatechartgroup(dk);
+                    } else {
+                        update_radial_vars();
+                        Updatechart2(dk);
+                    }
+                            
+               
+               
                 }
                 
-                
-                if (is_bar) {
-                    update_bar_vars();
-                    Updatechartgroup(dk);
-                } else {
-                    update_radial_vars();
-                    Updatechart2(dk);
-                }
-                is_pct2 = false;
+                 is_pct2 = false;
             });
 
 
@@ -243,7 +252,7 @@ return dat1;
                 if (is_pct2===false)
                 {   
                     dk = revertdk(bothdata[0]); 
-                    console.log(dk);
+                    
 
                     if (is_bar) {
                         update_bar_vars();
@@ -269,8 +278,9 @@ return dat1;
                 data.map(x => !x.Region);
                 x0.domain(data.map(function (d) { return d['Year']; }));
                 x1.domain(keys).rangeRound([0, x0.bandwidth()]);
-                ylinear.domain([0, <any>d3.max(data, function (d) { return d3.max(keys, function (key) { return d[<any>key]; }); })]).nice();
-
+                ylinear.domain([0,<any>d3.max(data, function(d) { return d3.max(keys, function(key) { return d[<any>key]; }); })]).nice();
+                console.log(data);
+                //<any>d3.max(data, function (d) { return d3.max(keys, function (key) { return d[<any>key]; }); })]
                 g.append("g")
                     .selectAll("g")
                     .data(data)
