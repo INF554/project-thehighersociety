@@ -69,20 +69,19 @@ export class Chart2Component implements OnInit {
        var col=data1.columns;
             data1.map(function (d) {
 
-                // d3.select('pp2').on("click",function(){
-
+                // if(is_pct2)
                 //     var popd=data2.find(function(element) {
                 //                    if(d.Year==='2014'||d.Year==='2016')
                 //                    return element.Year==='2015' && element.Region===d.Region;
                 //                    return element.Year===d.Year && element.Region===d.Region;
                 //                    });
-                //                if (typeof popd != 'undefined')
+                //  if (typeof popd != 'undefined')
                 //               { d.Industry=parseFloat(d.Industry)*popd.Middle;
                 //                d.Services=parseFloat(d.Services)*popd.Middle;
                 //                d.Ahff=parseFloat(d.Ahff)*popd.Middle;
                 //               }
                               
-                //            });
+           
                           
     
                 d['total'] = parseFloat(d.Industry)+parseFloat(d.Services)+parseFloat(d.Ahff)+5;
@@ -106,8 +105,16 @@ export class Chart2Component implements OnInit {
             d3.select('#Ecountries')
                 .on("change", function () {
                     var selection = d3.select('#Ecountries').property('value');
+                    
                     dk = newdata.filter(x => x['Region'] == selection);
                     dk['columns'] = newdata.columns.slice(1);
+                    
+                    
+
+                    if(is_pct2)
+                        //dk=updatedk(dk);
+
+
                     if (is_bar) {
                         Updatechartgroup(dk);
                     }
@@ -118,8 +125,10 @@ export class Chart2Component implements OnInit {
                 });
 
             d3.select('#bar').on("click", function () {
+                
                 is_bar = true;
                 svg.remove();
+
                 d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "1000")
                 svg = d3.select("#chart2");
                 width = +svg.attr("width") - 30;
@@ -138,9 +147,6 @@ export class Chart2Component implements OnInit {
                     .rangeRound([height, 0]);
 
                 g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-
 
                 Updatechartgroup(dk);
 
@@ -164,6 +170,28 @@ export class Chart2Component implements OnInit {
 
             });
 
+            d3.select('#pp2').on("click", function () {
+
+                is_pct2=false;
+
+                if(is_bar)
+                Updatechartgroup(dk);
+                else
+                Updatechart2(dk);
+
+            });
+
+
+            d3.select('#pppct2').on("click", function () {
+
+                is_pct2=true;
+
+                if(is_bar)
+                Updatechartgroup(dk);
+                else
+                Updatechart2(dk);
+
+            });
             
 
             Updatechart2(dk);
