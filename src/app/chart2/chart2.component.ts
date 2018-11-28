@@ -143,7 +143,6 @@ return dat1;
         Promise.all(promises).then(function (values) {
             var data1 = values[0];
             var data2 = values[1];
-            // console.log(data2)
 
 
             var col = data1.columns;
