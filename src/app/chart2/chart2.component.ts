@@ -188,7 +188,7 @@ return dat1;
                     }
                     else {
 
-                        update_bar_vars();
+                        update_radial_vars();
                         Updatechart2(dk);
                     }
 
