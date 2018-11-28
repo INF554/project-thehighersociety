@@ -245,7 +245,7 @@ export class Chart1Component implements OnInit {
 
 
       var xAxis2 = g2.append("g")
-        .attr("class", "yaxis")
+        .attr("class", "yaxis2")
 
 
       var yAxis2 = g2.append("g")
@@ -264,7 +264,7 @@ export class Chart1Component implements OnInit {
         .style("text-anchor", "end")
         .text("Year");
 
-      var yLab2 = svg2.append('text').attr("class", "yLab")
+      var yLab2 = svg2.append('text').attr("class", "yLab2")
 
       yLab2.attr("x", -210)
         .attr("y", 40)

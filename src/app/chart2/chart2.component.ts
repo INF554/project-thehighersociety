@@ -51,7 +51,26 @@ export class Chart2Component implements OnInit {
         var is_bar = false;
         var is_pct2 = true;
 
-
+        function updatedk(dat1,dat2){
+        
+            var col=dat1.columns;
+            dat1.map(function (d) {
+                        var popd=dat2.find(function(element) {
+                                       if(d.Year==='2014'||d.Year==='2016')
+                                       return element.Year==='2015' && element.Region===d.Region;
+                                       return element.Year===d.Year && element.Region===d.Region;
+                                       });
+                     if (typeof popd != 'undefined')
+                                  { d.Industry=parseFloat(d.Industry)*popd.Middle;
+                                   d.Services=parseFloat(d.Services)*popd.Middle;
+                                   d.Ahff=parseFloat(d.Ahff)*popd.Middle;
+                                  }
+                                  return d;     
+    
+                                 } );
+                                 dat1['columns']=col;
+                                  return dat1;
+          }
 
 
         var files = ["assets/processed_economic_activity_small.csv", "assets/processed_age_distribution.csv"];
@@ -65,6 +84,7 @@ export class Chart2Component implements OnInit {
             var data1 = values[0];
             var data2 = values[1];
       // console.log(data2)
+     
 
        var col=data1.columns;
             data1.map(function (d) {
@@ -109,12 +129,10 @@ export class Chart2Component implements OnInit {
                     dk = newdata.filter(x => x['Region'] == selection);
                     dk['columns'] = newdata.columns.slice(1);
                     
-                    
+                    console.log(dk)
 
                     if(is_pct2)
-                        //dk=updatedk(dk);
-
-
+                        dk=updatedk(dk,bothdata[1]);
                     if (is_bar) {
                         Updatechartgroup(dk);
                     }
@@ -142,7 +160,7 @@ export class Chart2Component implements OnInit {
                     .padding(0.05);
 
 
-                var margin = { top: 10, right: 10, bottom: 10, left: 30 };
+                var margin = { top: 10, right: 10, bottom: 10, left: 40 };
                 ylinear = d3.scaleLinear()
                     .rangeRound([height, 0]);
 
@@ -173,6 +191,8 @@ export class Chart2Component implements OnInit {
             d3.select('#pp2').on("click", function () {
 
                 is_pct2=false;
+                dk = newdata.filter(x => x['Region'] == selection);
+                dk['columns'] = newdata.columns.slice(1);
 
                 if(is_bar)
                 Updatechartgroup(dk);
@@ -186,6 +206,8 @@ export class Chart2Component implements OnInit {
 
                 is_pct2=true;
 
+                
+                dk=updatedk(dk,bothdata[1]);
                 if(is_bar)
                 Updatechartgroup(dk);
                 else
