@@ -51,7 +51,26 @@ export class Chart2Component implements OnInit {
         var is_bar = false;
         var is_pct2 = true;
 
-
+        function updatedk(dat1,dat2){
+        
+            var col=dat1.columns;
+            dat1.map(function (d) {
+                        var popd=dat2.find(function(element) {
+                                       if(d.Year==='2014'||d.Year==='2016')
+                                       return element.Year==='2015' && element.Region===d.Region;
+                                       return element.Year===d.Year && element.Region===d.Region;
+                                       });
+                     if (typeof popd != 'undefined')
+                                  { d.Industry=parseFloat(d.Industry)*popd.Middle;
+                                   d.Services=parseFloat(d.Services)*popd.Middle;
+                                   d.Ahff=parseFloat(d.Ahff)*popd.Middle;
+                                  }
+                                  return d;     
+    
+                                 } );
+                                 dat1['columns']=col;
+                                  return dat1;
+          }
 
 
         var files = ["assets/processed_economic_activity_small.csv", "assets/processed_age_distribution.csv"];
@@ -65,24 +84,24 @@ export class Chart2Component implements OnInit {
             var data1 = values[0];
             var data2 = values[1];
       // console.log(data2)
+     
 
        var col=data1.columns;
             data1.map(function (d) {
 
-                // d3.select('pp2').on("click",function(){
-
+                // if(is_pct2)
                 //     var popd=data2.find(function(element) {
                 //                    if(d.Year==='2014'||d.Year==='2016')
                 //                    return element.Year==='2015' && element.Region===d.Region;
                 //                    return element.Year===d.Year && element.Region===d.Region;
                 //                    });
-                //                if (typeof popd != 'undefined')
+                //  if (typeof popd != 'undefined')
                 //               { d.Industry=parseFloat(d.Industry)*popd.Middle;
                 //                d.Services=parseFloat(d.Services)*popd.Middle;
                 //                d.Ahff=parseFloat(d.Ahff)*popd.Middle;
                 //               }
                               
-                //            });
+           
                           
     
                 d['total'] = parseFloat(d.Industry)+parseFloat(d.Services)+parseFloat(d.Ahff)+5;
@@ -106,8 +125,14 @@ export class Chart2Component implements OnInit {
             d3.select('#Ecountries')
                 .on("change", function () {
                     var selection = d3.select('#Ecountries').property('value');
+                    
                     dk = newdata.filter(x => x['Region'] == selection);
                     dk['columns'] = newdata.columns.slice(1);
+                    
+                    console.log(dk)
+
+                    if(is_pct2)
+                        dk=updatedk(dk,bothdata[1]);
                     if (is_bar) {
                         Updatechartgroup(dk);
                     }
@@ -118,8 +143,10 @@ export class Chart2Component implements OnInit {
                 });
 
             d3.select('#bar').on("click", function () {
+                
                 is_bar = true;
                 svg.remove();
+
                 d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "1000")
                 svg = d3.select("#chart2");
                 width = +svg.attr("width") - 30;
@@ -133,14 +160,11 @@ export class Chart2Component implements OnInit {
                     .padding(0.05);
 
 
-                var margin = { top: 10, right: 10, bottom: 10, left: 30 };
+                var margin = { top: 10, right: 10, bottom: 10, left: 40 };
                 ylinear = d3.scaleLinear()
                     .rangeRound([height, 0]);
 
                 g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-
 
                 Updatechartgroup(dk);
 
@@ -164,6 +188,32 @@ export class Chart2Component implements OnInit {
 
             });
 
+            d3.select('#pp2').on("click", function () {
+
+                is_pct2=false;
+                dk = newdata.filter(x => x['Region'] == selection);
+                dk['columns'] = newdata.columns.slice(1);
+
+                if(is_bar)
+                Updatechartgroup(dk);
+                else
+                Updatechart2(dk);
+
+            });
+
+
+            d3.select('#pppct2').on("click", function () {
+
+                is_pct2=true;
+
+                
+                dk=updatedk(dk,bothdata[1]);
+                if(is_bar)
+                Updatechartgroup(dk);
+                else
+                Updatechart2(dk);
+
+            });
             
 
             Updatechart2(dk);

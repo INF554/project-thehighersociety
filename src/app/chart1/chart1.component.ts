@@ -69,6 +69,9 @@ export class Chart1Component implements OnInit {
           data1['columns'] = data.columns.slice(1);
           updateGraph(data1);
           updateGraph2(data1);
+             d3.selectAll('.c1').style("opacity", 0);
+             d3.selectAll('.c2').style("opacity", 0);
+             d3.selectAll('.c3').style("opacity", 0);
           
         });
        
@@ -242,7 +245,7 @@ export class Chart1Component implements OnInit {
 
 
       var xAxis2 = g2.append("g")
-        .attr("class", "yaxis")
+        .attr("class", "yaxis2")
 
 
       var yAxis2 = g2.append("g")
@@ -261,7 +264,7 @@ export class Chart1Component implements OnInit {
         .style("text-anchor", "end")
         .text("Year");
 
-      var yLab2 = svg2.append('text').attr("class", "yLab")
+      var yLab2 = svg2.append('text').attr("class", "yLab2")
 
       yLab2.attr("x", -210)
         .attr("y", 40)
