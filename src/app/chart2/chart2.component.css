@@ -1,10 +1,7 @@
 #buttondiv2 {
     position:relative;
     transition: .5s ease;
-    top: -520px;
-    left: -550px;
-    width: 100px;
-    height: 100px;
+    margin-right: 200px;
     display: inline-block;
 }
 
