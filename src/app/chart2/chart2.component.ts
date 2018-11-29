@@ -45,7 +45,7 @@ export class Chart2Component implements OnInit {
 
         var ylinear = d3.scaleLinear()
             .rangeRound([height, 0]);
-        //var margin = { top: 20, right: 20, bottom: 30, left: 40 };
+        //var margin = { top: 20, right: 20, bottom: 30, left: 20 };
 
         var is_bar = true;
         var is_pct2 = true;
@@ -111,7 +111,7 @@ return dat1;
         function update_bar_vars() {
             svg.remove();
             var margin = { top: 10, right: 30, bottom: 40, left: 40 };
-            d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "1000")
+            d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "950")
             svg = d3.select("#chart2");
             width = +svg.attr("width") - margin.left -margin.right;
             height = +svg.attr("height") - margin.top - margin.bottom;
