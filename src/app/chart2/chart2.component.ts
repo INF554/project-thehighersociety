@@ -47,7 +47,7 @@ export class Chart2Component implements OnInit {
             .rangeRound([height, 0]);
         //var margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-        var is_bar = false;
+        var is_bar = true;
         var is_pct2 = true;
         var div = d3.select("#tooltip")
                     .attr("class", "tooltip")				
@@ -166,9 +166,6 @@ return dat1;
                 d['total'] = parseFloat(d.Industry) + parseFloat(d.Services) + parseFloat(d.AHFF) ;
                 d.Year = (d.Year).toString();
 
-
-
-
                 return d;
             });
             data1['columns'] = col;
@@ -178,7 +175,7 @@ return dat1;
             var newdata = bothdata[0]
             
             var selection = d3.select('#Ecountries').property('value');
-
+            //Make Percentage Data
             var dk = JSON.parse(JSON.stringify(newdata.filter(x => x['Region'] == selection)));
             dk['columns'] = JSON.parse(JSON.stringify(newdata.columns.slice(1)));
 
@@ -283,8 +280,8 @@ return dat1;
               
             });
 
-
-            Updatechart2(dk);
+            update_bar_vars();
+            Updatechartgroup(dk);
 
             function Updatechartgroup(data) {
 
@@ -309,11 +306,7 @@ return dat1;
                     .attr("height", function (d) { return height - ylinear(d['value']); })
                     .attr("fill", <any>function (d) { return z(d['key']); })
                     .on("mouseover", function(d){
-<<<<<<< HEAD
-                      //  console.log(d['data']);
-=======
                         //console.log(d['data']);
->>>>>>> 7e6ca03b09a370929f0b9909ac6f2025b1d13006
                         d3.select(this)
                           .style("cursor", " pointer");
                         div.transition()		
@@ -357,7 +350,7 @@ return dat1;
                     .attr("fill", "#000")
                     .attr("font-weight", "bold")
                     .attr("text-anchor", "start")
-                    .text("Population");
+                    .text(function(){ if(is_pct2) return "Population"; else return "Population%";});
 
                 var legend = g.append("g")
                     .attr("font-family", "sans-serif")
