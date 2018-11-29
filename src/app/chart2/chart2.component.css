@@ -9,14 +9,12 @@
 }
 
 #tooltip {
-    position: fixed;
     text-align: center;
     text-decoration-color: black;
     font: 14px arial;		
-    background: rgb(255, 244, 143);
-    bottom: 600px;
-    right: 20px;
-    width: 150px;
-    height: 150px;
+    bottom: 20%;
+    right: 81%;
+    width: 200px;
+    height: 200px;
     visibility: hidden;
 }
