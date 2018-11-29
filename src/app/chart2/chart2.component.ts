@@ -53,6 +53,12 @@ export class Chart2Component implements OnInit {
                     .attr("class", "tooltip")				
                     .style("opacity", 0)
                     .style("visibility", "visible");
+
+        var divBar = d3.select("#tooltip_bar")
+                    .attr("class", "tooltip_bar")				
+                    .style("opacity", 0)
+                    .style("visibility", "visible");
+
         div.append('div') // add divs to the tooltip defined above                            
            .attr('class', 'country');
         div.append('div') // add divs to the tooltip defined above                            
@@ -306,37 +312,24 @@ return dat1;
                     .attr("height", function (d) { return height - ylinear(d['value']); })
                     .attr("fill", <any>function (d) { return z(d['key']); })
                     .on("mouseover", function(d){
-<<<<<<< HEAD
-                        //console.log(d['data']);
-=======
-                      //  console.log(d['data']);
->>>>>>> f626b591b91c61030c2e0a4d2f619ded30160b8c
+                        console.log(d);
                         d3.select(this)
-                          .style("cursor", " pointer");
-                        // div.transition()		
-                        //   .duration(200)		
-                        //   .style("opacity", 0.8)
-                        //   .style("border", "3px solid grey");
-                        
-                        // if (is_pct2)
-                        // {div.select('.country').html("<b>Country</b>: " + <any>d['data']['Region']);
-                        // div.select('.year').html("<b>Year</b>: " + <any>d['data']['Year']);
-                        // div.select('.ahff').html("<b>AHFF</b>: " + <any>d['data']['AHFF']);
-                        // div.select('.services').html("<b>Services</b>: " + <any>d['data']['Services']);
-                        // div.select('.industry').html("<b>Industry</b>: " + <any>d['data']['Industry']);}
-                        // else
-                        // {div.select('.country').html("<b>Country</b>: " + <any>d['data']['Region']);
-                        // div.select('.year').html("<b>Year</b>: " + <any>d['data']['Year']);
-                        // div.select('.ahff').html("<b>AHFF</b>: " + Math.round( (d['data']['AHFF']/1000000) * 100) / 100 + "M");
-                        // div.select('.services').html("<b>Services</b>: " + Math.round( (d['data']['Services']/1000000) * 100) / 100 + "M");
-                        // div.select('.industry').html("<b>Industry</b>: " + Math.round( (d['data']['Industry']/1000000) * 100) / 100 + "M");}
+                          .style("cursor", " pointer")
+                          .style("opacity", 0.5);
+                        divBar.transition()		
+                          .duration(200)		
+                          .style("opacity", .9);
+                        divBar.html(d['value'])
+                          .style("left", (d3.event.pageX) + "px")		
+                          .style("top", (d3.event.pageY - 50) + "px");
                     })
                     .on("mouseout", function (d) {
                         d3.select(this)
-                          .style("cursor", "none");
-                        // div.transition()		
-                        //   .duration(100)		
-                        //   .style("opacity", 0);
+                          .style("cursor", "none")
+                          .style("opacity", 1);
+                        divBar.transition()		
+                          .duration(100)		
+                          .style("opacity", 0);
                     });
 
                 g.append("g")
@@ -348,13 +341,14 @@ return dat1;
                     .attr("class", "axis")
                     .call(d3.axisLeft(ylinear).ticks(null, "s"))
                     .append("text")
-                    .attr("x", 2)
-                    .attr("y", ylinear(ylinear.ticks().pop()) + 0.5)
+                    .attr("transform", "rotate(-90)")
+                    .attr("x", -240)
+                    .attr("y", ylinear(ylinear.ticks().pop()) - 35)
                     .attr("dy", "0.32em")
                     .attr("fill", "#000")
                     .attr("font-weight", "bold")
                     .attr("text-anchor", "start")
-                    .text(function(){ if(is_pct2) return "Population"; else return "Population%";});
+                    .text(function(){ if(is_pct2) return "Population"; else return "Population %";});
 
                 var legend = g.append("g")
                     .attr("font-family", "sans-serif")
