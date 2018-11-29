@@ -10,10 +10,9 @@
 
 #tooltip {
     text-align: center;
+    display: inline-block;
     text-decoration-color: black;
     font: 14px arial;		
-    bottom: 20%;
-    right: 81%;
     width: 200px;
     height: 200px;
     visibility: hidden;

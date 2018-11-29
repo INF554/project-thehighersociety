@@ -27,3 +27,7 @@
     pointer-events: none;
     visibility: hidden;
 }
+
+.card{
+display: inline-block;
+}
