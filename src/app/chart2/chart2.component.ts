@@ -319,9 +319,16 @@ return dat1;
                         divBar.transition()		
                           .duration(200)		
                           .style("opacity", .9);
+
+                        if (is_pct2){
                         divBar.html(d['value'])
                           .style("left", (d3.event.pageX) + "px")		
+                          .style("top", (d3.event.pageY - 50) + "px");}
+                        else{
+                            divBar.html(Math.round( (d['value']/1000000) * 100) / 100 + "M")
+                          .style("left", (d3.event.pageX) + "px")		
                           .style("top", (d3.event.pageY - 50) + "px");
+                        }
                     })
                     .on("mouseout", function (d) {
                         d3.select(this)
@@ -343,12 +350,12 @@ return dat1;
                     .append("text")
                     .attr("transform", "rotate(-90)")
                     .attr("x", -240)
-                    .attr("y", ylinear(ylinear.ticks().pop()) - 35)
+                    .attr("y", ylinear(ylinear.ticks().pop()) - 30)
                     .attr("dy", "0.32em")
                     .attr("fill", "#000")
                     .attr("font-weight", "bold")
                     .attr("text-anchor", "start")
-                    .text(function(){ if(is_pct2) return "Population"; else return "Population %";});
+                    .text(function(){if(ylinear.domain()[1] >= 105) return "Population"; else return "Population %";});
 
                 var legend = g.append("g")
                     .attr("font-family", "sans-serif")
@@ -477,7 +484,7 @@ return dat1;
                 yAxis.append("text")
                     .attr("y", function (d) { return (-y(y.ticks(5).pop() - 5)); })
                     .attr("dy", "-1em")
-                    .text("Population");
+                    .text(function(){ if(y.domain()[1] >= 105) return "Population"; else return "Population %";});
 
                 var legend = g.append("g")
                     .selectAll("g")
