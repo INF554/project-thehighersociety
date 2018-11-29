@@ -1,8 +1,7 @@
 #buttondiv {
     position:relative;
     transition: .5s ease;
-    top: -520px;
-    left: -600px;
+ 
     display: inline-block;
   
     

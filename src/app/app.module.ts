@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { Chart1Component } from './chart1/chart1.component';
 import { Chart2Component } from './chart2/chart2.component';
 import { Chart3Component } from './chart3/chart3.component';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { IntroComponent } from './intro/intro.component';
+import { Chart4Component } from './chart4/chart4.component'
 
 export const routerConfig: Routes = [
   {
@@ -21,13 +23,18 @@ export const routerConfig: Routes = [
       component: Chart3Component
   },
   {
+    path: 'home',
+    component: IntroComponent
+},
+
+  {
       path: '',
-      redirectTo: 'chart1',
+      redirectTo: 'home',
       pathMatch: 'full'
   },
   {
       path: '**',
-      redirectTo: 'chart1',
+      redirectTo: 'home',
       pathMatch: 'full'
   }
 ];
@@ -36,7 +43,9 @@ export const routerConfig: Routes = [
     AppComponent,
     Chart1Component,
     Chart2Component,
-    Chart3Component
+    Chart3Component,
+    IntroComponent,
+    Chart4Component
   ],
   imports: [
     BrowserModule,
