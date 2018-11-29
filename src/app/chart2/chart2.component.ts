@@ -309,37 +309,33 @@ return dat1;
                     .attr("height", function (d) { return height - ylinear(d['value']); })
                     .attr("fill", <any>function (d) { return z(d['key']); })
                     .on("mouseover", function(d){
-<<<<<<< HEAD
                       //  console.log(d['data']);
-=======
-                        //console.log(d['data']);
->>>>>>> 7e6ca03b09a370929f0b9909ac6f2025b1d13006
                         d3.select(this)
                           .style("cursor", " pointer");
-                        div.transition()		
-                          .duration(200)		
-                          .style("opacity", 0.8)
-                          .style("border", "3px solid grey");
+                        // div.transition()		
+                        //   .duration(200)		
+                        //   .style("opacity", 0.8)
+                        //   .style("border", "3px solid grey");
                         
-                        if (is_pct2)
-                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
-                        div.select('.year').html("Year: " + <any>d['data']['Year']);
-                        div.select('.ahff').html("AHFF: " + <any>d['data']['AHFF']);
-                        div.select('.services').html("Services: " + <any>d['data']['Services']);
-                        div.select('.industry').html("Industry: " + <any>d['data']['Industry']);}
-                        else
-                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
-                        div.select('.year').html("Year: " + <any>d['data']['Year']);
-                        div.select('.ahff').html("AHFF: " + Math.round( (d['data']['AHFF']/1000000) * 100) / 100 + "M");
-                        div.select('.services').html("Services: " + Math.round( (d['data']['Services']/1000000) * 100) / 100 + "M");
-                        div.select('.industry').html("Industry: " + Math.round( (d['data']['Industry']/1000000) * 100) / 100 + "M");}
+                        // if (is_pct2)
+                        // {div.select('.country').html("<b>Country</b>: " + <any>d['data']['Region']);
+                        // div.select('.year').html("<b>Year</b>: " + <any>d['data']['Year']);
+                        // div.select('.ahff').html("<b>AHFF</b>: " + <any>d['data']['AHFF']);
+                        // div.select('.services').html("<b>Services</b>: " + <any>d['data']['Services']);
+                        // div.select('.industry').html("<b>Industry</b>: " + <any>d['data']['Industry']);}
+                        // else
+                        // {div.select('.country').html("<b>Country</b>: " + <any>d['data']['Region']);
+                        // div.select('.year').html("<b>Year</b>: " + <any>d['data']['Year']);
+                        // div.select('.ahff').html("<b>AHFF</b>: " + Math.round( (d['data']['AHFF']/1000000) * 100) / 100 + "M");
+                        // div.select('.services').html("<b>Services</b>: " + Math.round( (d['data']['Services']/1000000) * 100) / 100 + "M");
+                        // div.select('.industry').html("<b>Industry</b>: " + Math.round( (d['data']['Industry']/1000000) * 100) / 100 + "M");}
                     })
                     .on("mouseout", function (d) {
                         d3.select(this)
                           .style("cursor", "none");
-                        div.transition()		
-                          .duration(100)		
-                          .style("opacity", 0);
+                        // div.transition()		
+                        //   .duration(100)		
+                        //   .style("opacity", 0);
                     });
 
                 g.append("g")
@@ -419,20 +415,20 @@ return dat1;
                         div.transition()		
                           .duration(200)		
                           .style("opacity", 0.8)
-                          .style("border", "3px solid grey");
+                          .style("border", "1px solid grey");
                         
                         if (is_pct2)
-                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
-                        div.select('.year').html("Year: " + <any>d['data']['Year']);
-                        div.select('.ahff').html("AHFF: " + <any>d['data']['AHFF']);
-                        div.select('.services').html("Services: " + <any>d['data']['Services']);
-                        div.select('.industry').html("Industry: " + <any>d['data']['Industry']);}
+                        {div.select('.country').html("<b>Country</b>: " + <any>d['data']['Region']);
+                        div.select('.year').html("<b>Year</b>: " + <any>d['data']['Year']);
+                        div.select('.ahff').html("<b>AHFF</b>: " + <any>d['data']['AHFF']);
+                        div.select('.services').html("<b>Services</b>: " + <any>d['data']['Services']);
+                        div.select('.industry').html("<b>Industry</b>: " + <any>d['data']['Industry']);}
                         else
-                        {div.select('.country').html("Country: " + <any>d['data']['Region']);
-                        div.select('.year').html("Year: " + <any>d['data']['Year']);
-                        div.select('.ahff').html("AHFF: " + Math.round( (d['data']['AHFF']/1000000) * 100) / 100 + "M");
-                        div.select('.services').html("Services: " + Math.round( (d['data']['Services']/1000000) * 100) / 100 + "M");
-                        div.select('.industry').html("Industry: " + Math.round( (d['data']['Industry']/1000000) * 100) / 100 + "M");}
+                        {div.select('.country').html("<b>Country</b>: " + <any>d['data']['Region']);
+                        div.select('.year').html("<b>Year</b>: " + <any>d['data']['Year']);
+                        div.select('.ahff').html("<b>AHFF</b>: " + Math.round( (d['data']['AHFF']/1000000) * 100) / 100 + "M");
+                        div.select('.services').html("<b>Services</b>: " + Math.round( (d['data']['Services']/1000000) * 100) / 100 + "M");
+                        div.select('.industry').html("<b>Industry</b>: " + Math.round( (d['data']['Industry']/1000000) * 100) / 100 + "M");}
                     })
                     .on("mouseout", function (d) {
                         d3.select(this)
