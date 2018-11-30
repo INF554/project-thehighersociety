@@ -319,7 +319,7 @@ return dat1;
                           .duration(200)		
                           .style("opacity", .9);
 
-                        if (is_pct2){
+                        if (!(ylinear.domain()[1] >= 105)){
                         divBar.html(d['value'])
                           .style("left", (d3.event.pageX) + "px")		
                           .style("top", (d3.event.pageY - 50) + "px");}
@@ -418,7 +418,7 @@ return dat1;
                           .style("opacity", 0.8)
                           .style("border", "1px solid grey");
                         
-                        if (is_pct2)
+                        if (!(y.domain()[1] >= 105))
                         {div.select('.country').html("<b>Country</b>: " + <any>d['data']['Region']);
                         div.select('.year').html("<b>Year</b>: " + <any>d['data']['Year']);
                         div.select('.ahff').html("<b>AHFF</b>: " + <any>d['data']['AHFF']);
