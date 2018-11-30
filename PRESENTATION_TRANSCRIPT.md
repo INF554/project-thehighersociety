@@ -28,46 +28,52 @@ Emails: tshankar@usc.edu, mago@usc.edu, zigu@usc.edu
 
 ### Slide 5
 
-- Age Distribution 
-- Why we used area chart?
 - Dependency Ratio - what is it, what it shows?
 
 ### Slide 6
 
+- Age Distribution 
+- Why we used area chart?
+
+### Slide 7
+
 - Employment Distribution
+
+### Slide 8
+
 - Why we used radial chart?
 - Comparison of countries
 
-### Slide 7
+### Slide 9
 
 - Heat Map - GDP
 - Trends that heat map shows
 - Japan, China, US information
 
-### Slide 8
+### Slide 10
 
 - Research articles
 - Research papers
 
-### Slide 9
+### Slide 11
 
 - Impact of aged population
 
-### Slide 10
+### Slide 12
 
 - How is our project original?
 - Data from undata.org
 - Building graphs in d3
 
-### Slide 11
-
-- D3 and Bootstrap
-
-### Slide 12 
+### Slide 13
 
 - How we could have done somethings differently?
 
-### Slide 13
+### Slide 14 
+
+- Targeted audience
+
+### Slide 15
 
 - Thank you
 - Any questions?
