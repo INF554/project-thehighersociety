@@ -18,8 +18,8 @@ export class Chart2Component implements OnInit {
     ngOnInit() {
 
         var svg = d3.select("#chart2"),
-            width = +svg.attr("width") - 40,
-            height = +svg.attr("height")+10,
+            width = +$("#chart2").width() - 40,
+            height = +$("#chart2").height()+10,
             innerRadius = 140,
             outerRadius = Math.min(width, height) / 2,
             g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -112,8 +112,8 @@ return dat1;
             var margin = { top: 10, right: 30, bottom: 40, left: 40 };
             d3.select("#insvg").append("svg").attr("id", "chart2").attr("height", "500").attr("width", "950")
             svg = d3.select("#chart2");
-            width = +svg.attr("width") - margin.left -margin.right;
-            height = +svg.attr("height") - margin.top - margin.bottom;
+            width = +$("#chart2").width() - margin.left -margin.right;
+            height = +$("#chart2").height() - margin.top - margin.bottom;
 
             x0 = d3.scaleBand()
                 .rangeRound([0, width - 20])
@@ -136,8 +136,8 @@ return dat1;
             svg = d3.select("#chart2");
 
 
-            width = +svg.attr("width") - 40,
-                height = +svg.attr("height")+10,
+            width = +$("#chart2").width() - 40,
+                height = +$("#chart2").width()+10,
                 innerRadius = 140,
                 outerRadius = Math.min(width, height) / 2,
                 g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");

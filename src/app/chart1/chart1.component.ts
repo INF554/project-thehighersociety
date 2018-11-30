@@ -110,13 +110,13 @@ export class Chart1Component implements OnInit {
       data1['columns'] = data.columns.slice(1);
       var svg = d3.select("#chart1"),
         margin = { top: 10, right: 150, bottom: 60, left: 100 },
-        width = <any>svg.attr("width") - margin.left - margin.right,
-        height = <any>svg.attr("height") - margin.top - margin.bottom;
+        width = $('#chart1').width() - margin.left - margin.right,
+        height = $('#chart1').height() - margin.top - margin.bottom;
 
       var svg2 = d3.select("#chart2"),
         margin = { top: 10, right: 150, bottom: 60, left: 100 },
-        width = <any>svg2.attr("width") - margin.left - margin.right,
-        height = <any>svg2.attr("height") - margin.top - margin.bottom;
+        width = $('#chart2').width() - margin.left - margin.right,
+        height = $('#chart2').height() - margin.top - margin.bottom;
 
       var x = d3.scaleTime().range([0, width]),
         y = d3.scaleLinear().range([height, 0]),
@@ -137,14 +137,14 @@ export class Chart1Component implements OnInit {
         .attr('class', 'legend');
 
       legend.append('rect')
-        .attr('x', <any>svg.attr("width") - 70)
+        .attr('x', $('#chart1').width() - 70)
         .attr('y', function (d, i) { return height - (330 - i * 30); })
         .attr('width', 10)
         .attr('height', 10)
         .style('fill', function (d, i) { return z(i.toString()); });
 
       legend.append('text')
-        .attr('x', <any>svg.attr("width") - 50)
+        .attr('x', $('#chart1').width() - 50)
         .attr('y', function (d, i) { return height - (326 - i * 30); })
         .attr("dy", ".35em")
         .style("font", "12px sans-serif")
@@ -152,7 +152,7 @@ export class Chart1Component implements OnInit {
 
       var legendText = svg.append('text')
 
-      legendText.attr("x", <any>svg.attr("width"))
+      legendText.attr("x", $('#chart1').width())
         .attr("y", height - 350)
         .attr("dy", ".35em")
         .style("font", "14px sans-serif")
@@ -217,14 +217,14 @@ export class Chart1Component implements OnInit {
         .attr('class', 'legend');
 
       legend2.append('rect')
-        .attr('x', <any>svg2.attr("width") - 70)
+        .attr('x', $('#chart2').width() - 70)
         .attr('y', function (d, i) { return height - (330 - i * 30); })
         .attr('width', 10)
         .attr('height', 10)
         .style('fill', function (d, i) { return z2(i.toString()); });
 
       legend2.append('text')
-        .attr('x', <any>svg2.attr("width") - 50)
+        .attr('x', $('#chart2').width() - 50)
         .attr('y', function (d, i) { return height - (326 - i * 30); })
         .attr("dy", ".35em")
         .style("font", "12px sans-serif")
@@ -232,7 +232,7 @@ export class Chart1Component implements OnInit {
 
       var legendText2 = svg2.append('text')
 
-      legendText2.attr("x", <any>svg2.attr("width"))
+      legendText2.attr("x", $('#chart2').width())
         .attr("y", height - 350)
         .attr("dy", ".35em")
         .style("font", "14px sans-serif")

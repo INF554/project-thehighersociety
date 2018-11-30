@@ -7,7 +7,7 @@ import { Chart2Component } from './chart2/chart2.component';
 import { Chart3Component } from './chart3/chart3.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IntroComponent } from './intro/intro.component';
-import { Chart4Component } from './chart4/chart4.component'
+
 
 export const routerConfig: Routes = [
   {
@@ -45,7 +45,6 @@ export const routerConfig: Routes = [
     Chart2Component,
     Chart3Component,
     IntroComponent,
-    Chart4Component
   ],
   imports: [
     BrowserModule,
