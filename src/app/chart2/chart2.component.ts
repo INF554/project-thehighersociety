@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-
-import * as kk from 'src/app/d3-scale-radial.js';
+import * as kk from '../../assets/d3-scale-radial.js';
 
 
 

@@ -52,7 +52,7 @@ export class Chart1Component implements OnInit {
          
                          
              if (--i) myLoop(i);      //  decrement i and call myLoop again if i > 0
-          }, 1500)
+          }, 800)
        })(14);
 
     
