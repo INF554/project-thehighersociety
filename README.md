@@ -9,7 +9,7 @@
 ### PROJECT ARTIFACTS
 
 - [Demonstration URL](http://www-scf.usc.edu/~tshankar/popstudy/#/home)
-- [Presentation PDF](https://github.com/INF554Fall18/project-thehighersociety/blob/master/PDF/First_Presentation.pdf) and [transcript](https://github.com/INF554Fall18/project-thehighersociety/blob/master/SoziPresentations/PRESENTATION_TRANSCRIPT.md)
+- [Presentation PDF](https://github.com/INF554Fall18/project-thehighersociety/blob/master/PDF/Final_Presentation.pdf) and [transcript](https://github.com/INF554Fall18/project-thehighersociety/blob/master/SoziPresentations/PRESENTATION_TRANSCRIPT.md)
 - [Article](https://github.com/INF554Fall18/project-thehighersociety/blob/master/PDF/Article.pdf) and [Overleaf URL](https://www.overleaf.com/read/sqdvwxjjrrcx)
 - [YouTube video](https://youtu.be/MT2Gm21MTpE)
 
