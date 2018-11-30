@@ -2,60 +2,72 @@
 
 ### Slide 1
 
-Title:
+Title: A demographic study
 
-Group Name:
+Group Name: The Higher Society
 
-Emails:
+Emails: tshankar@usc.edu, mago@usc.edu, zigu@usc.edu
 
 ### Slide 2
 
-- why interesting, useful
-- analysis data of countries, compare and conclude
+- Why project is important?
+- Analyze trends
+- Identify causes
+- Project future populations
+- Identify implications
 
 ### Slide 3
 
-- 4 charts, who did what, roughly what they are
+- Why is the project useful?
+- Analyze data of countries, comparison and conclusion
 
 ### Slide 4
 
-- Age distribution 
-- more countries to 15 - 20 seconds
-- why area chart
-- dependency ratio - what is it, what it shows
+- Information about charts
+- Work distribution
 
 ### Slide 5
 
-- employment distribution
-- why radar chart
-- compare countries
+- Age Distribution 
+- Why we used area chart?
+- Dependency Ratio - what is it, what it shows?
 
 ### Slide 6
 
-- Heat Map - GDP
-- trends that heat map shows
-- Japan, China, US
+- Employment Distribution
+- Why we used radial chart?
+- Comparison of countries
 
 ### Slide 7
 
-- research
-- ???
+- Heat Map - GDP
+- Trends that heat map shows
+- Japan, China, US information
 
 ### Slide 8
 
-- research ???
+- Research articles
+- Research papers
 
 ### Slide 9
 
-- Original
-- data from undata
-- build graphs in d3
+- Impact of aged population
 
 ### Slide 10
 
-- D3 and bootstrapt
+- How is our project original?
+- Data from undata.org
+- Building graphs in d3
 
-### Slide 11 
+### Slide 11
 
-- differently
-- different charts
+- D3 and Bootstrap
+
+### Slide 12 
+
+- How we could have done somethings differently?
+
+### Slide 13
+
+- Thank you
+- Any questions?
