@@ -1,5 +1,6 @@
-svg{
-    align-content: center;
-    margin-left: 20%;
-    display: inline;
+#graphArea{
+    display: block;
+}
+#sliderlabel{
+   position: relative;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
+import * as $ from 'jquery';
 import {feature} from 'topojson';
 
 @Component({
@@ -15,9 +16,10 @@ export class Chart3Component implements OnInit {
 
 	var contryList = ["China","Nigeria","Japan","Bangladesh","India","Pakistan","Indonesia","Mexico","Brazil","United States of America"]
 
-  	var margin = { top: 100, left: 50, bottom: 50, right: 10 };
-	var width = 1200 - margin.left - margin.right;
-	var height = 900 - margin.top - margin.bottom;
+  	var margin = { top: 100, left: 120, bottom: 50, right: 50 };
+	var width = $('#graphArea').width() - margin.left - margin.right;
+	var height = $('#graphArea').height() - margin.top - margin.bottom;
+
 
 
 
@@ -28,7 +30,7 @@ export class Chart3Component implements OnInit {
 				.attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
 
 	var projection=d3.geoMercator()
-					.translate([width/3,height/3])
+					.translate([width/2,height/3])
 
 	var path=d3.geoPath()
 				.projection(projection)
