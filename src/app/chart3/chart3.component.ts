@@ -36,7 +36,7 @@ export class Chart3Component implements OnInit {
 				.projection(projection)
 
 	d3.json("assets/worldmap.json").then(function (worldMap:any) {
-		d3.csv("assets/GDPNew.csv").then(function(gdpData:any){
+		d3.csv("assets/GDPNewer.csv").then(function(gdpData:any){
 
 			// d3.slider()
 			var columnName = "Gross Domestic Product (GDP)"
@@ -146,7 +146,7 @@ export class Chart3Component implements OnInit {
 								.text(selected.__data__.properties.name)
 							d3.select("#GDPText")
 								// @ts-ignore
-								.text(parseInt((+allGDP[selectedYear][selected.__data__.properties.name])/1000000).toString())
+								.text(parseInt((+allGDP[selectedYear][selected.__data__.properties.name])/1000000000).toString())
 							d3.select(this)
 								.attr("stroke","red")
 							// d3.select(selected)
@@ -181,7 +181,7 @@ export class Chart3Component implements OnInit {
 
 			svg.append("text")
 				.attr("id","legendMax")
-				.text("10284779(million $)")
+				.text("1030(billion $)")
 				.attr("x",50)
 				.attr("y",290)
 				.attr("style","font-size:10px")
@@ -202,7 +202,7 @@ export class Chart3Component implements OnInit {
 			// @ts-ignore
 			//console.log(d3.select(".slider")._groups[0][0].value)
 			d3.select(".slider")
-				.on('click',function(){
+				.on('input',function(){
 
 					d3.select("#countryText")
 						.text("")
@@ -220,10 +220,10 @@ export class Chart3Component implements OnInit {
 					maxGDP = getMaxGDP(targetGDP)
 
 					// @ts-ignore
-					var lm = parseInt(maxGDP/1000000).toString()
+					var lm = parseInt(maxGDP/1000000000).toString()
 
 					svg.select("#legendMax")
-						.text(lm+"(million $)")
+						.text(lm+"(billion $)")
 						.attr("x",50)
 						.attr("y",290)
 						.attr("style","font-size:10px")
@@ -281,7 +281,7 @@ export class Chart3Component implements OnInit {
 								.text(selected.__data__.properties.name)
 							d3.select("#GDPText")
 								// @ts-ignore
-								.text((parseInt((+allGDP[selectedYear][selected.__data__.properties.name])/1000000)).toString())
+								.text((parseInt((+allGDP[selectedYear][selected.__data__.properties.name])/1000000000)).toString())
 							d3.select(this)
 								.attr("stroke","red")
 							// d3.select(selected)
