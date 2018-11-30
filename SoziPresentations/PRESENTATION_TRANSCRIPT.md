@@ -18,60 +18,68 @@ Emails: tshankar@usc.edu, mago@usc.edu, zigu@usc.edu
 
 ### Slide 3
 
-- Why is the project useful?
-- Analyze data of countries, comparison and conclusion
+- Work Distribution
+- Deliverables
 
 ### Slide 4
 
-- Information about charts
-- Work distribution
+- Data chosen
+- Dependency Ratio
+
 
 ### Slide 5
 
-- Dependency Ratio - what is it, what it shows?
+- Research articles
+- Research papers
 
 ### Slide 6
 
-- Age Distribution 
-- Why we used area chart?
+- Related work of others
+- How we improved?
 
 ### Slide 7
 
-- Employment Distribution
+- Story of our project
+- What do 7B people do?
 
 ### Slide 8
+
+- Targeted audience
+- Youth
+- Business Owners
+- Economists
+
+### Slide 9
+
+- Age distribution
+- Why we used area chart?
+- Dependency Ratio
+
+### Slide 10
+
+- Animation over time
+- Interactivity in chart
+
+### Slide 11
 
 - Why we used radial chart?
 - Comparison of countries
 
-### Slide 9
+### Slide 12
+
+- Grouped bar chart
+- Importance of simplicity
+
+### Slide 13
 
 - Heat Map - GDP
 - Trends that heat map shows
 - Japan, China, US information
 
-### Slide 10
-
-- Research articles
-- Research papers
-
-### Slide 11
-
-- Impact of aged population
-
-### Slide 12
-
-- How is our project original?
-- Data from undata.org
-- Building graphs in d3
-
-### Slide 13
-
-- How we could have done somethings differently?
-
 ### Slide 14 
 
-- Targeted audience
+- What we could have done better?
+- Future improvements
 
 ### Slide 15
 
