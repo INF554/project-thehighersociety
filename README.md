@@ -28,19 +28,9 @@ The project uses the following technologies:
 - Bootstrap
 
 
-Run the following scripts to get Angular using npm
+Run the following scripts to install all dependencies using npm
 ```html
-sudo npm install -g @angular/cli  #install CLI to use everywhere
-ng new my-app  #create new angular app
-cd my-app
-```
-Run the following scripts to get bootstrap and jquery using npm
-```html
-npm install bootstrap jquery --save
-```
-Run the following command to get D3 for Angular:
-```html
-npm install --save d3 @types/d3 #add D3 library
+npm install
 ```
 
 ### DEPLOYMENT SETUP
